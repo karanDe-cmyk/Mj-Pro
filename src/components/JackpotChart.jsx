@@ -90,10 +90,10 @@ const JackpotChart = () => {
     return (
         <div className="divTable mt-50 px-4">
             <div className="gameNameChart text-lg sm:text-xl font-bold mb-2 text-center">
-                {selectedGameName} Jodi Chart
+                {selectedGameName} Jackpot Chart
             </div>
             <div className="gameNameDesc text-sm mb-4 text-gray-600 text-center">
-                {selectedGameName} Jodi Chart - Historical Data and Results
+                {selectedGameName} Jackpot Chart - Historical Data and Results
             </div>
 
             <div className="overflow-x-auto">

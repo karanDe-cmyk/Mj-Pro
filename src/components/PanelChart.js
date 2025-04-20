@@ -86,9 +86,9 @@ const PannaChart = () => {
 
   return (
     <div className="divTable mt-10">
-      <div className="gameNameChart text-xl font-bold mb-2">{selectedGameName} Jodi Chart</div>
+      <div className="gameNameChart text-xl font-bold mb-2">{selectedGameName} Panna Chart</div>
       <div className="gameNameDesc text-sm mb-4 text-gray-600">
-        {selectedGameName} Jodi Chart - Historical Data and Results
+        {selectedGameName} Panna Chart - Historical Data and Results
       </div>
 
       <div className="overflow-x-auto">

@@ -177,7 +177,7 @@ function Hero() {
         <section id="hero" className="w-full h-72 bg-pink-200 pt-4">
           <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8">
             <div className="flex justify-center space-x-6">
-              <a href="http://download937.mediafire.com/w37wggn9gchgRE-vL-RQM7e-ygfzxof4LgwwIwguPmdrpInFQlRUULgY5Bhew2h4LtAp2Fwf4YexlNeRLcH7KB0x3kgWk86qfisbKjn2jzcsrT91AM-xgu3mk_dMxZYEKjiAvC6QqcQlR8xJl0hA-yIZJbYdmsxBo_y3YBD6qA/fal22t8mcyhgg2t/gama.apk"
+              <a href="https://maccotech.s3.ap-south-1.amazonaws.com/gama.apk"
                 className="animate-bounce bg-orange-500 p-2 rounded-full w-72 text-white border-white border-2 shadow mt-3">
                 <FaHandPointRight className="inline-block text-lg mr-2" />
                 Download Now
@@ -214,7 +214,7 @@ function Hero() {
             <p className="separator">We have Best Game Rates for you</p>
             <br /><br />
 
-            
+
             <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2">
               {gameRatesArray.map((m, i) => (
                 <div key={i} className="flex items-center justify-between border-l-[5px] border-l-red-500 px-[.3cm] py-[.25cm] bg-white rounded-[5px]">
@@ -248,23 +248,23 @@ function Hero() {
                     <strong>{getResultStringForGame(game.name)} </strong>
                   </h2>
                   <div>
-                    <a className="text-orange-500 viewChartFont" href={game.jodiChart}>
+                    <a className="text-orange-500 viewChartFont" href={`/jodi-chart/${game.name}`}>
                       {game.jodiChart ? "Digit chart" : "View Chart"}
                     </a>
                     {game.pannaChart && (
                       <>
                         <span> | </span>
-                        <a className="text-orange-500 viewChartFont" href={game.pannaChart}>
+                        <a className="text-orange-500 viewChartFont" href={`/panna-chart/${game.name}`}>
                           Panna Chart
                         </a>
                       </>
                     )}
                   </div>
                 </div>
-                <div className="text-right pr-4">
-                  <button className="mr-2">
+                <div className="text-right pr-4 flex flex-col items-end ">
+                  <a href='https://maccotech.s3.ap-south-1.amazonaws.com/gama.apk' className="mr-2 ">
                     <FaPlayCircle size={60} className="text-orange-500 text-2xl shadow rounded-full shadow-orange-400 shadow-lg" />
-                  </button>
+                  </a>
                   <h5 className="mt-2 text-base font-bold">Play Now</h5>
                 </div>
               </div>

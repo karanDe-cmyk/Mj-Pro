@@ -14,17 +14,17 @@ const Navbar = ({ activeTab, setActiveTab }) => {
   };
 
   return (
-    <nav className="bg-white fixed top-0 z-50 w-full shadow backdrop-blur backdrop-filter bg-opacity-70">
+    <nav className="bg-white fixed top-0 z-50 w-full shadow backdrop-blur backdrop-filter bg-opacity-70 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <a href="/" className="cursor-default">
-                <img 
-                  className="block h-12 w-auto" 
+                <img
+                  className="block h-12 w-auto cursor-pointer"
                   src="/img/navbarlogo.png" // Ensure this path points to the public folder
-                  alt="Gama 567" 
+                  alt="Gama 567"
                 />
               </a>
             </div>
@@ -33,46 +33,41 @@ const Navbar = ({ activeTab, setActiveTab }) => {
           {/* Desktop Navigation */}
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
-              <a 
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  activeTab === "howtoplay" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
-                }`} 
+              <a
+                className={`px-3 py-2 rounded-md text-sm font-medium ${activeTab === "howtoplay" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
+                  }`}
                 href="/howtoplay"
                 onClick={() => handleTabClick("howtoplay")}
               >
                 How to Play
               </a>
-              <a 
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  activeTab === "gamerules" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
-                }`} 
+              <a
+                className={`px-3 py-2 rounded-md text-sm font-medium ${activeTab === "gamerules" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
+                  }`}
                 href="/gamerules"
                 onClick={() => handleTabClick("gamerules")}
               >
                 Game Rules
               </a>
-              <a 
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  activeTab === "charts" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
-                }`} 
+              <a
+                className={`px-3 py-2 rounded-md text-sm font-medium ${activeTab === "charts" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
+                  }`}
                 href="/charts"
                 onClick={() => handleTabClick("charts")}
               >
                 Charts
               </a>
-              <a 
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  activeTab === "aboutus" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
-                }`} 
+              <a
+                className={`px-3 py-2 rounded-md text-sm font-medium ${activeTab === "aboutus" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
+                  }`}
                 href="/aboutus"
                 onClick={() => handleTabClick("aboutus")}
               >
                 About Us
               </a>
-              <a 
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  activeTab === "terms" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
-                }`} 
+              <a
+                className={`px-3 py-2 rounded-md text-sm font-medium ${activeTab === "terms" ? "bg-orange-500 text-white" : "bg-white text-orange-500 hover:bg-orange-50"
+                  }`}
                 href="/terms"
                 onClick={() => handleTabClick("terms")}
               >
@@ -105,45 +100,40 @@ const Navbar = ({ activeTab, setActiveTab }) => {
           <div className="px-2 pt-2 pb-3 space-y-1">
             <a
               href="/howtoplay"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                activeTab === "howtoplay" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
-              }`}
+              className={`block px-3 py-2 rounded-md text-base font-medium ${activeTab === "howtoplay" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
+                }`}
               onClick={() => handleTabClick("howtoplay")}
             >
               How to Play
             </a>
             <a
               href="/gamerules"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                activeTab === "gamerules" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
-              }`}
+              className={`block px-3 py-2 rounded-md text-base font-medium ${activeTab === "gamerules" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
+                }`}
               onClick={() => handleTabClick("gamerules")}
             >
               Game Rules
             </a>
             <a
               href="/charts/app"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                activeTab === "charts" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
-              }`}
+              className={`block px-3 py-2 rounded-md text-base font-medium ${activeTab === "charts" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
+                }`}
               onClick={() => handleTabClick("charts")}
             >
               Charts
             </a>
             <a
               href="/aboutus"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                activeTab === "aboutus" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
-              }`}
+              className={`block px-3 py-2 rounded-md text-base font-medium ${activeTab === "aboutus" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
+                }`}
               onClick={() => handleTabClick("aboutus")}
             >
               About Us
             </a>
             <a
               href="/terms"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                activeTab === "terms" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
-              }`}
+              className={`block px-3 py-2 rounded-md text-base font-medium ${activeTab === "terms" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
+                }`}
               onClick={() => handleTabClick("terms")}
             >
               Terms & Conditions

@@ -85,7 +85,7 @@ const JodiChart = () => {
   if (error) return <div className="text-center py-10 text-red-500">Error: {error}</div>;
 
   return (
-    <div className="divTable mt-10">
+    <div className="divTable ">
       <div className="gameNameChart text-xl font-bold mb-2">{selectedGameName} Jodi Chart</div>
       <div className="gameNameDesc text-sm mb-4 text-gray-600">
         {selectedGameName} Jodi Chart - Historical Data and Results

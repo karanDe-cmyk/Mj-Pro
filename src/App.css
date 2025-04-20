@@ -1098,10 +1098,10 @@ video {
 }
 
 .divTable {
-  margin: 20px 0 10px;
   align-items: center;
   align-items: stretch;
   text-align: center;
+  margin-top: 2.5cm;
 }
 
 .thChartDate {

@@ -165,10 +165,11 @@ function Hero() {
       <div className="flex flex-col items-center min-h-screen mt-10">
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
-            <h1 className="text-3xl md:text-6xl font-bold">
+            <p className="text-[25px] sm:text-[35px] md:text-[50px] font-bold">
               Welcome to <span className="text-orange-500">Gama 567</span>
-            </h1>
-            <p className="mt-3 text-xl md:text-3xl">
+            </p>
+
+            <p className="mt-3 text-xl md:text-2xl">
               Business Of Faith, With Confidence
             </p>
           </div>

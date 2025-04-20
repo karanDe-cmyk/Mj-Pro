@@ -1085,6 +1085,15 @@ video {
   }
 }
 
+@media (max-width : 500px) {
+  .header {
+    width: 90%;
+    background-size: 200pt;
+    height: 100vh;
+    background-position-y: 170px;
+  }
+}
+
 .divTable {
   margin: 20px 0 10px;
   align-items: center;

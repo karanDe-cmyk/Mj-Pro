@@ -213,8 +213,9 @@ function Hero() {
             </h2>
             <p className="separator">We have Best Game Rates for you</p>
             <br /><br />
-            <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2">
 
+            
+            <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2">
               {gameRatesArray.map((m, i) => (
                 <div key={i} className="flex items-center justify-between border-l-[5px] border-l-red-500 px-[.3cm] py-[.25cm] bg-white rounded-[5px]">
                   <div className="w-fit flex items-center gap-[.2cm]">

@@ -1076,6 +1076,9 @@ video {
   font-size: 32px;
 }
 
+
+
+
 @media (max-width: 768px) {
   .header {
     width: 90%;

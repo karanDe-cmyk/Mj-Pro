@@ -3,6 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 function Footer() {
     return (
+        
         <>
         <footer className=" bg-orange-600 text-white">
             <div className="max-w-7xl mx-auto py-4 px-4 overflow-hidden sm:px-6 lg:px-8">

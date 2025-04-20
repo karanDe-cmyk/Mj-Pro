@@ -55,7 +55,7 @@
 
 .header {
   width: 90%;
-  height: 90vh;
+  height: 17cm;
   background: url('../public/img/mainImage.svg') bottom no-repeat;
   background-size: 250pt;
   position: relative;
@@ -1077,8 +1077,22 @@ video {
 }
 
 
+@media (max-width : 768px) {
+  .header {
+    width: 70%;
+    height: 17cm;
+    background: url('../public/img/mainImage.svg') bottom no-repeat;
+    background-size: 250pt;
+    position: relative;
+    padding-top: 20px;
+    background-color: #fff;
+    background-attachment: scroll;
+    background-position-y: 190px;
+    /* border: 1px solid black; */
+  }
+}
 
-
+/* 
 @media (max-width: 768px) {
   .header {
     width: 90%;
@@ -1095,7 +1109,7 @@ video {
     height: 100vh;
     background-position-y: 170px;
   }
-}
+} */
 
 /* @media (min-height : 500px) {
   .header {

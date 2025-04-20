@@ -1106,6 +1106,15 @@ video {
   }
 }
 
+@media (min-height : 900px) {
+  .header {
+    width: 90%;
+    background-size: 200pt;
+    height: 60vh;
+    background-position-y: 170px;
+  }
+}
+
 .divTable {
   align-items: center;
   align-items: stretch;

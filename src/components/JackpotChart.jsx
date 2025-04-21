@@ -23,46 +23,46 @@ const JackpotChart = () => {
                         item?.gameName?.trim()?.toLowerCase() === selectedGameName.trim().toLowerCase()
                 );
 
-                const groupedData = {};
-                filteredResults.forEach((item) => {
-                    const date = item.date; 
-                    if (!groupedData[date]) {
-                        groupedData[date] = { date, open: null, close: null, jodi: "**" };
-                    }
-                    if (item.gameType?.toLowerCase() === "open") {
-                        groupedData[date].open = `${item.panna}`;
-                    }
-                    if (item.gameType?.toLowerCase() === "close") {
-                        groupedData[date].close = `${item.panna}`;
-                    }
-                });
+                // const groupedData = {};
+                // filteredResults.forEach((item) => {
+                //     const date = item.date;
+                //     if (!groupedData[date]) {
+                //         groupedData[date] = { date, open: null, close: null, jodi: "**" };
+                //     }
+                //     if (item.gameType?.toLowerCase() === "open") {
+                //         groupedData[date].open = `${item.panna}`;
+                //     }
+                //     if (item.gameType?.toLowerCase() === "close") {
+                //         groupedData[date].close = `${item.panna}`;
+                //     }
+                // });
 
-                Object.keys(groupedData).forEach((date) => {
-                    const openPanna = groupedData[date].open;
-                    const closePanna = groupedData[date].close;
-                    if (openPanna && closePanna) {
-                        const openSum = openPanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
-                        const closeSum = closePanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
-                        groupedData[date].jodi = `${openSum % 10}${closeSum % 10}`;
-                    } else if (openPanna) {
-                        const openSum = openPanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
-                        groupedData[date].jodi = `${openSum % 10}*`;
-                        groupedData[date].close = groupedData[date].close || "***";
-                    } else if (closePanna) {
-                        const closeSum = closePanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
-                        groupedData[date].jodi = `*${closeSum % 10}`;
-                        groupedData[date].open = groupedData[date].open || "***";
-                    } else {
-                        groupedData[date].open = "***";
-                        groupedData[date].close = "***";
-                        groupedData[date].jodi = "**";
-                    }
-                });
+                // Object.keys(groupedData).forEach((date) => {
+                //     const openPanna = groupedData[date].open;
+                //     const closePanna = groupedData[date].close;
+                //     if (openPanna && closePanna) {
+                //         const openSum = openPanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
+                //         const closeSum = closePanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
+                //         groupedData[date].jodi = `${openSum % 10}${closeSum % 10}`;
+                //     } else if (openPanna) {
+                //         const openSum = openPanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
+                //         groupedData[date].jodi = `${openSum % 10}*`;
+                //         groupedData[date].close = groupedData[date].close || "***";
+                //     } else if (closePanna) {
+                //         const closeSum = closePanna.split("").reduce((acc, num) => acc + parseInt(num), 0);
+                //         groupedData[date].jodi = `*${closeSum % 10}`;
+                //         groupedData[date].open = groupedData[date].open || "***";
+                //     } else {
+                //         groupedData[date].open = "***";
+                //         groupedData[date].close = "***";
+                //         groupedData[date].jodi = "**";
+                //     }
+                // });
 
-                const finalData = Object.values(groupedData).sort(
-                    (a, b) => new Date(b.date) - new Date(a.date)
-                );
-                setDataSource(finalData);
+                // const finalData = Object.values(groupedData).sort(
+                //     (a, b) => new Date(b.date) - new Date(a.date)
+                // );
+                setDataSource(filteredResults);
             } catch (error) {
                 console.error("Error fetching results:", error);
                 setError("Something went wrong.");
@@ -110,9 +110,9 @@ const JackpotChart = () => {
                         {dataSource.map((d, index) => (
                             <tr key={index} className="border-t">
                                 <td className="border px-2 py-1">{d.date}</td>
-                                <td className="border px-2 py-1">{d.open}</td>
-                                <td className="border px-2 py-1">{d.jodi}</td>
-                                <td className="border px-2 py-1">{d.close}</td>
+                                <td className="border px-2 py-1">{d.leftDigit}</td>
+                                <td className="border px-2 py-1">{d.jodiDigit}</td>
+                                <td className="border px-2 py-1">{d.rightDigit}</td>
                             </tr>
                         ))}
                     </tbody>

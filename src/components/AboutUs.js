@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div className="flex flex-col items-center min-h-screen mt-[1cm]">
+    <div className="flex flex-col items-center min-h-screen mt-[2.5cm]">
       <div className="w-full max-w-4xl px-4">
         {/* Title Section */}
         <div className="text-center mb-8">

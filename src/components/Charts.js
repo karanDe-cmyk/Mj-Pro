@@ -37,7 +37,7 @@ const Charts = () => {
 
         const starlineCharts = starlineResponse.data.data.map((sa) => ({
           name: sa.game_name,
-          link: `/mrecords/${sa.game_name}-starline-chart`,
+          link: `/starline-chart/${sa.game_name}`,
         }));
 
         const jackpotCharts = jackpotChartsResponse.data.data.map((sa) => ({

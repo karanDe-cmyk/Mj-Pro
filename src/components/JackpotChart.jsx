@@ -25,7 +25,7 @@ const JackpotChart = () => {
 
                 const groupedData = {};
                 filteredResults.forEach((item) => {
-                    const date = item.date;
+                    const date = item.date; 
                     if (!groupedData[date]) {
                         groupedData[date] = { date, open: null, close: null, jodi: "**" };
                     }

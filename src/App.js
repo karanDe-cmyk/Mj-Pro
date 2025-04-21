@@ -12,6 +12,7 @@ import TermsAndConditions from "./components/TermsAndConditions";
 import JodiChart from "./components/JodiChart";
 import PannaChart from "./components/PanelChart";
 import JackpotChart from "./components/JackpotChart";
+import StarlineChart from "./components/starlineChart";
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
@@ -28,6 +29,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/panna-chart/:gameNamePanna" element={<PannaChart />} />
+        <Route path="/starline-chart/:starlineGame" element={<StarlineChart />} />
         <Route path="/jackpot-chart/:gameNameJackpot" element={<JackpotChart />} />
         <Route path="/jodi-chart/:gameName" element={<JodiChart />} />
       </Routes>

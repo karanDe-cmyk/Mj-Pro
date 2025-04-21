@@ -169,7 +169,7 @@ function Hero() {
               Welcome to <span className="text-orange-500">Gama 567</span>
             </p>
 
-            <p className="mt-3 text-xl md:text-2xl">
+            <p className=" text-xl md:text-2xl">
               Business Of Faith, With Confidence
             </p>
           </div>

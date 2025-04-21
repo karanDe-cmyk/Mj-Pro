@@ -1081,7 +1081,9 @@ video {
   .header {
     /* width: 50%; */
     background-size: 200pt;
-    
+    background-position-y: 130px;
+    height: 15.5cm;
+
   }
 }
 

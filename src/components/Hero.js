@@ -165,7 +165,7 @@ function Hero() {
       <div className="flex flex-col items-center min-h-screen mt-[2.5cm] ">
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
-            <p className="text-[30px] sm:text-[35px] md:text-[50px] font-bold">
+            <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold">
               Welcome to <span className="text-orange-500">Gama 567</span>
             </p>
 

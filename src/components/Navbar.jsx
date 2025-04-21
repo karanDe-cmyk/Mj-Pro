@@ -16,13 +16,13 @@ const Navbar = ({ activeTab, setActiveTab }) => {
   return (
     <nav className="bg-white fixed top-0 z-50 w-full shadow backdrop-blur backdrop-filter bg-opacity-70 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between py-[.5cm] ">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <a href="/" className="cursor-default">
                 <img
-                  className="block h-12 w-auto cursor-pointer"
+                  className="block h-auto w-[2cm] cursor-pointer"
                   src="/img/navbarlogo.png" // Ensure this path points to the public folder
                   alt="Gama 567"
                 />
@@ -115,7 +115,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
               Game Rules
             </a>
             <a
-              href="/charts/app"
+              href="/charts"
               className={`block px-3 py-2 rounded-md text-base font-medium ${activeTab === "charts" ? "bg-orange-500 text-white" : "text-orange-500 hover:bg-orange-50"
                 }`}
               onClick={() => handleTabClick("charts")}

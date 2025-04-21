@@ -61,7 +61,7 @@ const Charts = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center min-h-screen mt-20">
+    <div className="flex flex-col items-center min-h-screen mt-[3.5cm] ">
       <div className="w-full">
         {chartSections.map((section, index) => (
           <div key={index} className="mb-8">

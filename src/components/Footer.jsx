@@ -8,7 +8,7 @@ function Footer() {
         <footer className=" bg-orange-600 text-white">
             <div className="max-w-7xl mx-auto py-4 px-4 overflow-hidden sm:px-6 lg:px-8">
                 <div className="mt-8 flex justify-center space-x-6">
-                    <img src="/img/footerlogo.png" alt="Gama567 Logo" className="h-12 w-auto" />
+                    <img src="/img/footerlogo.png" alt="Gama567 Logo" className="w-[2.5cm] rounded-[10px] " />
                 </div>
                 <div className="mt-8 flex justify-center space-x-6">
                     <FaFacebook size={25}  href="#" className="text-white hover:text-gray-500">

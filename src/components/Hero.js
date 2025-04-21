@@ -162,7 +162,7 @@ function Hero() {
         <FaWhatsapp name="whatsapp" size={26} color="white" />
       </a>
 
-      <div className="flex flex-col items-center min-h-screen mt-10">
+      <div className="flex flex-col items-center min-h-screen mt-[2.5cm] ">
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
             <p className="text-[30px] sm:text-[35px] md:text-[50px] font-bold">
@@ -250,7 +250,7 @@ function Hero() {
                   </h2>
                   <div>
                     <a className="text-orange-500 viewChartFont" href={`/jodi-chart/${game.name}`}>
-                      {game.jodiChart ? "Digit chart" : "View Chart"}
+                      {game.jodiChart ? "Jodi chart" : "View Chart"}
                     </a>
                     {game.pannaChart && (
                       <>

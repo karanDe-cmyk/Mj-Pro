@@ -48,10 +48,10 @@ const StarlineChart = () => {
     return (
         <div className="divTable mt-50 px-4">
             <div className="gameNameChart text-lg sm:text-xl font-bold mb-2 text-center">
-                {selectedGameName} Jackpot Chart
+                {selectedGameName} Starline Chart
             </div>
             <div className="gameNameDesc text-sm mb-4 text-gray-600 text-center">
-                {selectedGameName} Jackpot Chart - Historical Data and Results
+                {selectedGameName} Starline Chart - Historical Data and Results
             </div>
 
             <div className="overflow-x-auto">

@@ -115,7 +115,7 @@ const HowToPlay = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center min-h-screen mt-[3.5cm] ">
+    <div className="flex flex-col items-center min-h-screen mt-[2.5cm] ">
       <div className="w-full max-w-6xl px-4">
         {sections.map((section, index) => (
           <section key={index} className={`mb-8 ${index === 0 ? 'text-center' : ''}`}>

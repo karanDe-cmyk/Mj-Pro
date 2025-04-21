@@ -162,7 +162,7 @@ function Hero() {
         <FaWhatsapp name="whatsapp" size={26} color="white" />
       </a>
 
-      <div className="flex flex-col items-center min-h-screen mt-[2.5cm] ">
+      <div className="flex flex-col items-center min-h-screen mt-[1cm] ">
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
             <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold">

@@ -19,7 +19,6 @@ function App() {
 
   return (
     <div className="min-h-screen w-full overflow-y-hidden bg-white text-black">
-      {/* Header */}
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       <Routes>
         <Route path="/" element={<Hero />} />

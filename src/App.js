@@ -32,8 +32,6 @@ function App() {
         <Route path="/jackpot-chart/:gameNameJackpot" element={<JackpotChart />} />
         <Route path="/jodi-chart/:gameName" element={<JodiChart />} />
       </Routes>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

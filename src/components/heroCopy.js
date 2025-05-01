@@ -5,7 +5,7 @@ import {
   FaWhatsapp,
   FaPlayCircle,
 } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import apiInstance from "../utils/axios";
 import moment from 'moment';
 

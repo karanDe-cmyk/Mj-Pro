@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Footer from "./components/Footer";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import HowToPlay from "./components/HowtoPlay";
 import Hero from "./components/Hero";
 import Charts from "./components/Charts";

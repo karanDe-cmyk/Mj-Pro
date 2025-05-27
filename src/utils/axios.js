@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const apiInstance = axios.create({
-    baseURL: "https://vip-api.kglame.com",
+    baseURL: "https://api.dhanlaxmionlinematka.com",
     // baseURL: "http://localhost:5000"
 });
 

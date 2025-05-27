@@ -1,7 +1,7 @@
 {
-  "name": "gama567",
+  "name": "Milan Bazar",
   "version": "0.1.0",
-  "homepage": "https://gama567app.net/",
+  "homepage": "https://Milan Bazarapp.net/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",

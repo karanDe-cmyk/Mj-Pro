@@ -22,9 +22,9 @@ const Navbar = ({ activeTab, setActiveTab }) => {
             <div className="flex-shrink-0">
               <a href="/" className="cursor-default">
                 <img
-                  className="block h-[1cm] w-[1cm] md:w-[1.5cm] cursor-pointer"
+                  className="block h-[1.1cm] w-[1.4cm] md:w-[1.5cm] cursor-pointer"
                   src="/img/navbarlogo.png" // Ensure this path points to the public folder
-                  alt="Gama 567"
+                  alt="Milan Bazar"
                 />
               </a>
             </div>

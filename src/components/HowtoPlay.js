@@ -12,7 +12,7 @@ const HowToPlay = () => {
           </p>
 
           <p className="mb-4 font-semibold">
-            This is how you play matka on Gama567:
+            This is how you play matka on Milan Bazar:
           </p>
 
           <ul className="list-disc pl-6 mb-6 space-y-2">
@@ -30,7 +30,7 @@ const HowToPlay = () => {
       )
     },
     {
-      title: "How to add money in Gama567?",
+      title: "How to add money in Milan Bazar?",
       content: (
         <>
           <ul className="list-[circle] pl-6 mb-6 space-y-2">
@@ -47,7 +47,7 @@ const HowToPlay = () => {
 
           <p className="mb-6">
             The game you played and got lucky enough to win it then accordingly your points will be increased.
-            If you wish to encash the points, just apply for withdrawal request on our Gama567 Mobile App. 
+            If you wish to encash the points, just apply for withdrawal request on our Milan Bazar Mobile App. 
             <br /><b>**</b> In case of any inconvenience regarding the transaction of money OR further query then you can WhatsApp us on <a href="https://wa.me/+919167555333" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold">+91 9167 555333</a>
           </p>
         </>
@@ -55,7 +55,7 @@ const HowToPlay = () => {
     },
     {
       title: "Satta Matka Guide – How To Play & Win Money?",
-      content: "Satta is a broad word to describe 'betting' in India or Hindi. The Matka game is sometimes referred to as Indian Satta Matka because of its early popularity. If you are interested in betting games, you can check out the numbers game at gama567.com"
+      content: "Satta is a broad word to describe 'betting' in India or Hindi. The Matka game is sometimes referred to as Indian Satta Matka because of its early popularity. If you are interested in betting games, you can check out the numbers game at Milan Bazar.com"
     },
     {
       title: "WHAT IS SATTA BAZAR?",

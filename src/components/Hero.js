@@ -263,7 +263,7 @@ function Hero() {
                   </div>
                 </div>
                 <div className="text-right pr-4 flex flex-col items-end ">
-                  <a href='https://mg-matka190.s3.ap-south-1.amazonaws.com/app-release1.apk' className="mr-2 ">
+                  <a href='https://maccotech.s3.ap-south-1.amazonaws.com/milan-bazar.apk' className="mr-2 ">
                     <FaPlayCircle size={60} className="text-orange-500 text-2xl shadow rounded-full shadow-orange-400 shadow-lg" />
                   </a>
                   <h5 className="mt-2 text-base font-bold">Play Now</h5>

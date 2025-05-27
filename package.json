@@ -1,7 +1,7 @@
 {
   "name": "Milan Bazar",
   "version": "0.1.0",
-  "homepage": "https://Milan Bazarapp.net/",
+  "homepage":"https://milanbazarapp.net/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",

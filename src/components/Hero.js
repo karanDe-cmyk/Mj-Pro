@@ -115,6 +115,21 @@ function Hero() {
   const [gameRatesObject, setGameRatesObject] = useState({});
   const [gameRatesArray, setGameRatesArray] = useState([]);
 
+   useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const response = await instance.get("/api/settings/general");
+        if (response.data && response.data.length > 0) {
+          setSettings(response.data[0]);
+        }
+      } catch (error) {
+        console.error("Error fetching settings:", error);
+      }
+    };
+    fetchSettings();
+  }, []);
+
+
   useEffect(() => {
     const fetchGameRates = async () => {
       try {
@@ -157,8 +172,9 @@ function Hero() {
   }, [gameRatesObject]);
 
   return (
+    
     <div>
-      <a href="https://wa.me/+916367591857" target="blank" className="whatsapp-icon-div">
+      <a href={`https://wa.me/91${settings.whatsappnumber}`} target="blank" className="whatsapp-icon-div">
         <FaWhatsapp name="whatsapp" size={26} color="white" />
       </a>
 
@@ -199,7 +215,7 @@ function Hero() {
               </a>
 
               <a className="bg-green-600 p-3 rounded-full text-white w-48 border-white border-2 shadow text-center"
-                href="https://wa.me/+916367591857" target="_blank" rel="noopener noreferrer">
+                href={`https://wa.me/91${settings.whatsappnumber}`} target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp className="inline-block mr-2" />
                 Whats App
               </a>

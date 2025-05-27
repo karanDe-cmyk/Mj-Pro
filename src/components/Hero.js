@@ -115,21 +115,6 @@ function Hero() {
   const [gameRatesObject, setGameRatesObject] = useState({});
   const [gameRatesArray, setGameRatesArray] = useState([]);
 
-   useEffect(() => {
-    const fetchSettings = async () => {
-      try {
-        const response = await instance.get("/api/settings/general");
-        if (response.data && response.data.length > 0) {
-          setSettings(response.data[0]);
-        }
-      } catch (error) {
-        console.error("Error fetching settings:", error);
-      }
-    };
-    fetchSettings();
-  }, []);
-
-
   useEffect(() => {
     const fetchGameRates = async () => {
       try {
@@ -172,9 +157,8 @@ function Hero() {
   }, [gameRatesObject]);
 
   return (
-    
     <div>
-      <a href={`https://wa.me/91${settings.whatsappnumber}`} target="blank" className="whatsapp-icon-div">
+      <a href="https://wa.me/+917878459187" target="blank" className="whatsapp-icon-div">
         <FaWhatsapp name="whatsapp" size={26} color="white" />
       </a>
 
@@ -203,19 +187,19 @@ function Hero() {
 
             <div className="mt-8 text-center text-base">
               <h3 className="text-2xl text-gray-800">
-                <strong> +91 6367591857 </strong>
+                <strong> +91 7878459187 </strong>
               </h3>
             </div>
 
             <div className="mt-6 flex justify-center space-x-6">
               <a className="bg-white border-orange-500 p-3 rounded-full text-gray-800 w-48 border-2 shadow text-center"
-                href="tel:+916367591857">
+                href="tel:+917878459187">
                 <FaPhone className="inline-block mr-2" />
                 Call Now
               </a>
 
               <a className="bg-green-600 p-3 rounded-full text-white w-48 border-white border-2 shadow text-center"
-                href={`https://wa.me/91${settings.whatsappnumber}`} target="_blank" rel="noopener noreferrer">
+                href="https://wa.me/+917878459187" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp className="inline-block mr-2" />
                 Whats App
               </a>

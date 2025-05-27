@@ -178,7 +178,7 @@ function Hero() {
         <section id="hero" className="w-full h-72 bg-pink-200 pt-4">
           <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8  " >
             <div className="flex justify-center space-x-6">
-              <a href="https://mg-matka190.s3.ap-south-1.amazonaws.com/app-release1.apk"
+              <a href="https://maccotech.s3.ap-south-1.amazonaws.com/gama.apk"
                 className="animate-bounce bg-orange-500 p-2 rounded-full w-72 text-white border-white border-2 shadow mt-3 text-center ">
                 <FaHandPointRight className="inline-block text-lg mr-2" />
                 Download Now
@@ -263,7 +263,7 @@ function Hero() {
                   </div>
                 </div>
                 <div className="text-right pr-4 flex flex-col items-end ">
-                  <a href='https://mg-matka190.s3.ap-south-1.amazonaws.com/app-release1.apk' className="mr-2 ">
+                  <a href='https://maccotech.s3.ap-south-1.amazonaws.com/gama.apk' className="mr-2 ">
                     <FaPlayCircle size={60} className="text-orange-500 text-2xl shadow rounded-full shadow-orange-400 shadow-lg" />
                   </a>
                   <h5 className="mt-2 text-base font-bold">Play Now</h5>

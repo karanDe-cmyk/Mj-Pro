@@ -8,7 +8,7 @@ function Footer() {
         <footer className=" bg-orange-600 text-white">
             <div className="max-w-7xl mx-auto py-4 px-4 overflow-hidden sm:px-6 lg:px-8">
                 <div className="mt-8 flex justify-center space-x-6">
-                    <img src="/img/footerlogo.png" alt="Milan Bazar Logo" className="w-[2.5cm] rounded-[10px] " />
+                    <img src="/img/footerlogo.png" alt="kalyan 787 Logo" className="w-[2.5cm] rounded-[10px] " />
                 </div>
                 <div className="mt-8 flex justify-center space-x-6">
                     <FaFacebook size={25}  href="#" className="text-white hover:text-gray-500">
@@ -42,7 +42,7 @@ function Footer() {
                 </div>
                 <p className="mt-8 text-center text-base"><strong>Cambridge CB2 1TN, United Kingdom</strong></p>
                 <p className="mt-8 text-center text-base">Our website is operated by Gama International B.V., a company established under the laws of United Kingdom, with registered address at #506 IT Park Towers Cambridge CB2 1TN, United Kingdom, and having its gaming sublicence issued, by United Kingdom e-Gaming and all rights to operate the gaming software worldwide.</p>
-                <p className="mt-8 text-center text-base">Copyright Milan Bazar | All rights reserved</p>
+                <p className="mt-8 text-center text-base">Copyright kalyan 787 | All rights reserved</p>
             </div>
         </footer>
         </>

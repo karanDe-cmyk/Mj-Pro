@@ -24,7 +24,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
                 <img
                   className="block h-[1.1cm] w-[1.4cm] md:w-[1.5cm] cursor-pointer"
                   src="/img/navbarlogo.png" // Ensure this path points to the public folder
-                  alt="Milan Bazar"
+                  alt="kalyan 787"
                 />
               </a>
             </div>

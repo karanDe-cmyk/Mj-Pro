@@ -12,7 +12,7 @@ const HowToPlay = () => {
           </p>
 
           <p className="mb-4 font-semibold">
-            This is how you play matka on kalyan 787:
+            This is how you play matka on Osho Matka:
           </p>
 
           <ul className="list-disc pl-6 mb-6 space-y-2">
@@ -30,7 +30,7 @@ const HowToPlay = () => {
       )
     },
     {
-      title: "How to add money in kalyan 787?",
+      title: "How to add money in Osho Matka?",
       content: (
         <>
           <ul className="list-[circle] pl-6 mb-6 space-y-2">
@@ -47,7 +47,7 @@ const HowToPlay = () => {
 
           <p className="mb-6">
             The game you played and got lucky enough to win it then accordingly your points will be increased.
-            If you wish to encash the points, just apply for withdrawal request on our kalyan 787 Mobile App. 
+            If you wish to encash the points, just apply for withdrawal request on our Osho Matka Mobile App. 
             <br /><b>**</b> In case of any inconvenience regarding the transaction of money OR further query then you can WhatsApp us on <a href="https://wa.me/+919167555333" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold">+91 9167 555333</a>
           </p>
         </>
@@ -55,7 +55,7 @@ const HowToPlay = () => {
     },
     {
       title: "Satta Matka Guide – How To Play & Win Money?",
-      content: "Satta is a broad word to describe 'betting' in India or Hindi. The Matka game is sometimes referred to as Indian Satta Matka because of its early popularity. If you are interested in betting games, you can check out the numbers game at kalyan 787.com"
+      content: "Satta is a broad word to describe 'betting' in India or Hindi. The Matka game is sometimes referred to as Indian Satta Matka because of its early popularity. If you are interested in betting games, you can check out the numbers game at OshoMatka.com"
     },
     {
       title: "WHAT IS SATTA BAZAR?",

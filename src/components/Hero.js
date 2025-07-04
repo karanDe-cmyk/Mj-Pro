@@ -166,7 +166,7 @@ function Hero() {
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
             <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold">
-              Welcome to <span className="text-orange-500">kalyan 787</span>
+              Welcome to <span className="text-orange-500">Osho Matka</span>
             </p>
 
             <p className=" text-xl md:text-2xl">

@@ -158,7 +158,7 @@ function Hero() {
 
   return (
     <div>
-      <a href="https://wa.me/+918978487843" target="blank" className="whatsapp-icon-div">
+      <a href="https://wa.me/+919610938895" target="blank" className="whatsapp-icon-div">
         <FaWhatsapp name="whatsapp" size={26} color="white" />
       </a>
 
@@ -166,7 +166,7 @@ function Hero() {
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
             <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold">
-              Welcome to <span className="text-orange-500">Osho Matka</span>
+              Welcome to <span className="text-orange-500">King Matka</span>
             </p>
 
             <p className=" text-xl md:text-2xl">
@@ -178,7 +178,7 @@ function Hero() {
         <section id="hero" className="w-full h-72 bg-pink-200 pt-4">
           <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8  " >
             <div className="flex justify-center space-x-6">
-              <a href="https://osho-matka.s3.ap-south-1.amazonaws.com/app-release+(3).apk"
+              <a href="https://king-matka.s3.ap-south-1.amazonaws.com/app-release+(4).apk"
                 className="animate-bounce bg-orange-500 p-2 rounded-full w-72 text-white border-white border-2 shadow mt-3 text-center ">
                 <FaHandPointRight className="inline-block text-lg mr-2" />
                 Download Now
@@ -187,19 +187,19 @@ function Hero() {
 
             <div className="mt-8 text-center text-base">
               <h3 className="text-2xl text-gray-800">
-                <strong> +91 8978487843 </strong>
+                <strong> +91 9610938895 </strong>
               </h3>
             </div>
 
             <div className="mt-6 flex justify-center space-x-6">
               <a className="bg-white border-orange-500 p-3 rounded-full text-gray-800 w-48 border-2 shadow text-center"
-                href="tel:+918978487843">
+                href="tel:+919610938895">
                 <FaPhone className="inline-block mr-2" />
                 Call Now
               </a>
 
               <a className="bg-green-600 p-3 rounded-full text-white w-48 border-white border-2 shadow text-center"
-                href="https://wa.me/+918978487843" target="_blank" rel="noopener noreferrer">
+                href="https://wa.me/+919610938895" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp className="inline-block mr-2" />
                 Whats App
               </a>
@@ -263,7 +263,7 @@ function Hero() {
                   </div>
                 </div>
                 <div className="text-right pr-4 flex flex-col items-end ">
-                  <a href='https://osho-matka.s3.ap-south-1.amazonaws.com/app-release+(3).apk' className="mr-2 ">
+                  <a href='https://king-matka.s3.ap-south-1.amazonaws.com/app-release+(4).apk' className="mr-2 ">
                     <FaPlayCircle size={60} className="text-orange-500 text-2xl shadow rounded-full shadow-orange-400 shadow-lg" />
                   </a>
                   <h5 className="mt-2 text-base font-bold">Play Now</h5>

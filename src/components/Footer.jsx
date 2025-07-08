@@ -42,7 +42,7 @@ function Footer() {
                 </div>
                 <p className="mt-8 text-center text-base"><strong>Cambridge CB2 1TN, United Kingdom</strong></p>
                 <p className="mt-8 text-center text-base">Our website is operated by Gama International B.V., a company established under the laws of United Kingdom, with registered address at #506 IT Park Towers Cambridge CB2 1TN, United Kingdom, and having its gaming sublicence issued, by United Kingdom e-Gaming and all rights to operate the gaming software worldwide.</p>
-                <p className="mt-8 text-center text-base">Copyright Osho Matka | All rights reserved</p>
+                <p className="mt-8 text-center text-base">Copyright King Matka | All rights reserved</p>
             </div>
         </footer>
         </>

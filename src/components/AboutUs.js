@@ -13,19 +13,19 @@ const AboutUs = () => {
         {/* Content Section */}
         <div className="text-gray-700">
           <p className="text-center italic mb-6">
-            Osho is operated by S S international, a company incorporated under the laws of United Kingdom and regulated by the UK authority as the regulatory body responsible holding a (Sub-license with License number 392/JAZ Sub-License GLH-OCCHKTV0707086017 granted on 21.08.2020).
+            King is operated by S S international, a company incorporated under the laws of United Kingdom and regulated by the UK authority as the regulatory body responsible holding a (Sub-license with License number 392/JAZ Sub-License GLH-OCCHKTV0707086017 granted on 21.08.2020).
           </p>
 
           <p className="text-center font-bold text-lg mb-6">
-            Osho is into existence for past 30 years with more than 1.38 lac + members.
+            King is into existence for past 30 years with more than 1.38 lac + members.
           </p>
 
           <p className="mb-6">
-            We have proudly taken our culture from offline to online business and now stand as India's most trusted betting platform. Osho is an international betting platform and has presence in more than 18 countries. We truly value our customers and our endeavor is to provide best customer service and enable our customers to play online games with ease.
+            We have proudly taken our culture from offline to online business and now stand as India's most trusted betting platform. King is an international betting platform and has presence in more than 18 countries. We truly value our customers and our endeavor is to provide best customer service and enable our customers to play online games with ease.
           </p>
 
           <p className="text-orange-500 font-semibold">
-            Players are requested not to contact any untrusted sources for Osho accounts.
+            Players are requested not to contact any untrusted sources for King accounts.
           </p>
         </div>
       </div>

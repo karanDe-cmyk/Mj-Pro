@@ -8,10 +8,16 @@ import {
 import apiInstance from "../utils/axios";
 import moment from "moment";
 
+const ANDROID_64_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
+const ANDROID_32_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-armeabi-v7a-release.apk";
+// For iOS, you would typically link to the App Store.
+const IOS_APP_STORE_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
+// A default URL in case detection fails.
+const DEFAULT_DOWNLOAD_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
+
 function Hero() {
 
-
-  const [games, setGames] = useState([]);
+    const [games, setGames] = useState([]);
   const [charts, setCharts] = useState([]);
   const [declaredResults, setDeclaredResults] = useState([]);
   const today = moment().format("YYYY-MM-DD");
@@ -20,6 +26,57 @@ function Hero() {
 
   const [whatsapp, setWhatsapp] = useState("")
   const [mobile, setMobile] = useState("")
+
+   const [downloadUrl, setDownloadUrl] = useState(DEFAULT_DOWNLOAD_URL);
+  const [os, setOs] = useState("Other");
+
+
+  // This effect runs once when the component mounts to detect the OS
+  useEffect(() => {
+    // navigator.userAgent gives us a string with browser and OS info
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // --- OS Detection Logic ---
+
+    // 1. Check for iOS (iPhone, iPad, iPod)
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      setDownloadUrl(IOS_APP_STORE_URL);
+      setOs("iOS");
+    }
+    // 2. Check for Android
+    else if (/android/i.test(userAgent)) {
+       setOs("Android");
+       // Within Android, check for architecture.
+       // 'aarch64' or 'x86_64' are common indicators of a 64-bit system.
+       if (/aarch64|x86_64/i.test(userAgent)) {
+           setDownloadUrl(ANDROID_64_BIT_URL);
+       } else {
+           // If not explicitly 64-bit, we assume 32-bit as a fallback.
+           setDownloadUrl(ANDROID_32_BIT_URL);
+       }
+    }
+    // 3. Fallback for other systems (like Desktop)
+    else {
+        // For desktops, you might want to link to a 64-bit version by default
+        // or just use the general link.
+        setDownloadUrl(DEFAULT_DOWNLOAD_URL);
+        setOs("Desktop/Other");
+    }
+
+  }, []); 
+
+   const handleDownload = () => {
+    if (downloadUrl) {
+        window.location.href = downloadUrl;
+    } else {
+        // Fallback in case the URL state is somehow empty
+        alert("Could not find a suitable download link.");
+    }
+  };
+
+
+
+
 
   const getResultStringForGame = (gameName) => {
     const gameResults = declaredResults.filter(
@@ -54,6 +111,8 @@ function Hero() {
 
     fetchWhatsapp()
   }, [])
+
+  
 
   const fetchGames = async () => {
     try {
@@ -196,11 +255,11 @@ function Hero() {
         <section id="hero" className="w-full h-72 bg-pink-200 pt-4">
           <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8  " >
             <div className="flex justify-center space-x-6">
-              <a href="https://osho-matka.s3.ap-south-1.amazonaws.com/app-release+(3).apk"
+              <button onClick={handleDownload} 
                 className="animate-bounce bg-orange-500 p-2 rounded-full w-72 text-white border-white border-2 shadow mt-3 text-center ">
                 <FaHandPointRight className="inline-block text-lg mr-2" />
                 Download Now
-              </a>
+              </button>
             </div>
 
             <div className="mt-8 text-center text-base">
@@ -284,9 +343,9 @@ function Hero() {
                   </div>
                 </div>
                 <div className="text-right pr-4 flex flex-col items-end ">
-                  <a href='https://osho-matka.s3.ap-south-1.amazonaws.com/app-release+(3).apk' className="mr-2 ">
+                  <button onClick={handleDownload}  className="mr-2 ">
                     <FaPlayCircle size={60} className="text-orange-500 text-2xl shadow rounded-full shadow-orange-400 shadow-lg" />
-                  </a>
+                  </button>
                   <h5 className="mt-2 text-base font-bold">Play Now</h5>
                 </div>
               </div>

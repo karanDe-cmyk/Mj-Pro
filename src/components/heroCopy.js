@@ -144,7 +144,7 @@ function Hero() {
       // Fallback to unauthenticated endpoint if needed
       try {
         const fallbackResponse = await fetch(
-          "https://api.jannatmatka.shop/rates/getBetRates"
+          "https://3dgamaapp-api.kglame.com/rates/getBetRates"
         );
         if (fallbackResponse.ok) {
           const fallbackData = await fallbackResponse.json();
@@ -231,7 +231,7 @@ function Hero() {
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
             <h1 className="text-3xl md:text-6xl font-bold">
-              Welcome to <span className="text-orange-500">King Matka</span>
+              Welcome to <span className="text-orange-500">3D Gama</span>
             </h1>
             <p className="mt-3 text-xl md:text-3xl">
               Business Of Faith, With Confidence

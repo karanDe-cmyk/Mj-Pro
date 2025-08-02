@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const apiInstance = axios.create({
-    baseURL: "https://kingonline-api.kglame.com",
+    baseURL: "https://3dgamaapp-api.kglame.com",
     // baseURL: "http://localhost:5000"
 });
 

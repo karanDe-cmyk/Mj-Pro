@@ -12,7 +12,7 @@ const HowToPlay = () => {
           </p>
 
           <p className="mb-4 font-semibold">
-            This is how you play matka on King Matka:
+            This is how you play matka on 3D Gama:
           </p>
 
           <ul className="list-disc pl-6 mb-6 space-y-2">
@@ -30,7 +30,7 @@ const HowToPlay = () => {
       )
     },
     {
-      title: "How to add money in King Matka?",
+      title: "How to add money in 3D Gama?",
       content: (
         <>
           <ul className="list-[circle] pl-6 mb-6 space-y-2">
@@ -47,7 +47,7 @@ const HowToPlay = () => {
 
           <p className="mb-6">
             The game you played and got lucky enough to win it then accordingly your points will be increased.
-            If you wish to encash the points, just apply for withdrawal request on our King Matka Mobile App. 
+            If you wish to encash the points, just apply for withdrawal request on our 3D Gama Mobile App. 
             <br /><b>**</b> In case of any inconvenience regarding the transaction of money OR further query then you can WhatsApp us on <a href="https://wa.me/+919167555333" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold">+91 9167 555333</a>
           </p>
         </>

@@ -10,8 +10,8 @@ import moment from "moment";
 
 const ANDROID_64_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
 const ANDROID_32_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-armeabi-v7a-release.apk";
-const IOS_APP_STORE_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
-const DEFAULT_DOWNLOAD_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
+const IOS_APP_STORE_URL = "https://apps.apple.com/app/idXXXXXXXXX"; // Replace with actual App Store link
+const DEFAULT_DOWNLOAD_URL = ANDROID_64_BIT_URL; // default to 64-bit
 
 function Hero() {
   const [games, setGames] = useState([]);
@@ -23,20 +23,33 @@ function Hero() {
   const [gameRatesArray, setGameRatesArray] = useState([]);
   const today = moment().format("YYYY-MM-DD");
 
-  useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  // Enhanced Device Architecture Detection
+  const detectArchitecture = () => {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    console.log("UserAgent =>", ua);
 
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
       setDownloadUrl(IOS_APP_STORE_URL);
-    } else if (/android/i.test(userAgent)) {
-      if (/aarch64|x86_64/i.test(userAgent)) {
+      return;
+    }
+
+    if (/android/i.test(ua)) {
+      // Check for ARM64 or x86_64 indicators
+      if (/aarch64|armv8|arm64|x86_64/i.test(ua)) {
         setDownloadUrl(ANDROID_64_BIT_URL);
-      } else {
+      } else if (/armv7|armeabi/i.test(ua)) {
         setDownloadUrl(ANDROID_32_BIT_URL);
+      } else {
+        // Unknown architecture, default to 64-bit as most devices are now 64-bit
+        setDownloadUrl(ANDROID_64_BIT_URL);
       }
     } else {
-      setDownloadUrl(DEFAULT_DOWNLOAD_URL);
+      setDownloadUrl(DEFAULT_DOWNLOAD_URL); // For desktop or unknown OS
     }
+  };
+
+  useEffect(() => {
+    detectArchitecture();
   }, []);
 
   const handleDownload = () => {
@@ -47,25 +60,7 @@ function Hero() {
     }
   };
 
-  const getResultStringForGame = (gameName) => {
-    const gameResults = declaredResults.filter(
-      (item) =>
-        item.gameName.trim().toUpperCase() === gameName.trim().toUpperCase()
-    );
-    const openResult = gameResults.find((item) => item.gameType === "open");
-    const closeResult = gameResults.find((item) => item.gameType === "close");
-
-    if (openResult && closeResult) {
-      return `${openResult.panna}-${openResult.digit}${closeResult.digit}-${closeResult.panna}`;
-    } else if (openResult && !closeResult) {
-      return `${openResult.panna}-${openResult.digit}*-***`;
-    } else if (!openResult && closeResult) {
-      return `***-*${closeResult.digit}-${closeResult.panna}`;
-    } else {
-      return "***-**-***";
-    }
-  };
-
+  // Fetch WhatsApp & Mobile Info
   useEffect(() => {
     const fetchWhatsapp = async () => {
       try {
@@ -192,13 +187,33 @@ function Hero() {
     }
   }, [gameRatesObject]);
 
+  const getResultStringForGame = (gameName) => {
+    const gameResults = declaredResults.filter(
+      (item) =>
+        item.gameName.trim().toUpperCase() === gameName.trim().toUpperCase()
+    );
+    const openResult = gameResults.find((item) => item.gameType === "open");
+    const closeResult = gameResults.find((item) => item.gameType === "close");
+
+    if (openResult && closeResult) {
+      return `${openResult.panna}-${openResult.digit}${closeResult.digit}-${closeResult.panna}`;
+    } else if (openResult && !closeResult) {
+      return `${openResult.panna}-${openResult.digit}*-***`;
+    } else if (!openResult && closeResult) {
+      return `***-*${closeResult.digit}-${closeResult.panna}`;
+    } else {
+      return "***-**-***";
+    }
+  };
+
   return (
     <div>
       <a href={`https://wa.me/+91${whatsapp}`} target="blank" className="whatsapp-icon-div">
-        <FaWhatsapp name="whatsapp" size={26} color="white" />
+        <FaWhatsapp size={26} color="white" />
       </a>
 
       <div className="flex flex-col items-center min-h-screen mt-[1cm] ">
+        {/* Header Section */}
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
             <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold">
@@ -210,6 +225,7 @@ function Hero() {
           </div>
         </section>
 
+        {/* Download Button Section */}
         <section id="hero" className="w-full h-72 bg-pink-200 pt-4">
           <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8">
             <div className="flex justify-center space-x-6">
@@ -242,6 +258,7 @@ function Hero() {
           </div>
         </section>
 
+        {/* Rates Section */}
         <section id="pricing" className="w-full h-auto pt-4 p-4 bg-gray-100">
           <div className="text-center my-4">
             <h2 className="text-4xl font-bold">
@@ -266,6 +283,7 @@ function Hero() {
           </div>
         </section>
 
+        {/* Available Games Section */}
         <section id="availableGames" className="w-full h-auto pt-4 p-4">
           <div className="text-center my-4">
             <h2 className="text-4xl font-bold">

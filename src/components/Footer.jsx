@@ -10,19 +10,19 @@ function Footer() {
                         <img src="/img/footerlogo.jpg" alt="kalyan 787 Logo" className="w-[2.5cm] rounded-[10px]" />
                     </div>
                     <div className="mt-8 flex justify-center space-x-6">
-                        <a href="#" className="text-gray-400 hover:text-white">
+                        <a href="/" className="text-gray-400 hover:text-white">
                             <span className="sr-only">Facebook</span>
                             <FaFacebook size={25} />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white">
+                        <a href="/" className="text-gray-400 hover:text-white">
                             <span className="sr-only">Instagram</span>
                             <FaInstagram size={25} />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white">
+                        <a href="/" className="text-gray-400 hover:text-white">
                             <span className="sr-only">Twitter</span>
                             <FaTwitter size={25} />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white">
+                        <a href="/" className="text-gray-400 hover:text-white">
                             <span className="sr-only">YouTube</span>
                             <FaYoutube size={25} />
                         </a>

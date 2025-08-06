@@ -5,21 +5,27 @@ import {
   FaWhatsapp,
   FaPlayCircle,
 } from "react-icons/fa";
-import apiInstance from "../utils/axios";
+import apiInstance from "../utils/axios"; // Assuming this path is correct
 import moment from "moment";
 
+const ANDROID_64_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
+const ANDROID_32_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-armeabi-v7a-release.apk";
+const IOS_APP_STORE_URL = "https://apps.apple.com/app/idXXXXXXXXX"; // Replace with actual App Store link
+const DEFAULT_DOWNLOAD_URL = ANDROID_64_BIT_URL; // default to 64-bit
+
 function Hero() {
-
-
   const [games, setGames] = useState([]);
-  const [charts, setCharts] = useState([]);
+  const [charts, setCharts] = useState([]); // Added from user's latest input
   const [declaredResults, setDeclaredResults] = useState([]);
   const today = moment().format("YYYY-MM-DD");
-  console.log(charts)
-  console.log(games)
+  console.log(charts); // User's original console log
+  console.log(games); // User's original console log
 
-  const [whatsapp, setWhatsapp] = useState("")
-  const [mobile, setMobile] = useState("")
+  const [whatsapp, setWhatsapp] = useState("");
+  const [mobile, setMobile] = useState("");
+
+  // Removed detectArchitecture and downloadUrl state as the download link is now hardcoded in JSX
+  // and the original provided code didn't use the state for the download button's href.
 
   const getResultStringForGame = (gameName) => {
     const gameResults = declaredResults.filter(
@@ -44,16 +50,14 @@ function Hero() {
     const fetchWhatsapp = async () => {
       try {
         const res = await apiInstance.get('/api/settings/general/whatsapp');
-        setWhatsapp(res.data.whatsappnumber)
-        setMobile(res.data.mobile)
+        setWhatsapp(res.data.whatsappnumber);
+        setMobile(res.data.mobile);
+      } catch (err) {
+        console.log(err);
       }
-      catch (err) {
-        console.log(err)
-      }
-    }
-
-    fetchWhatsapp()
-  }, [])
+    };
+    fetchWhatsapp();
+  }, []);
 
   const fetchGames = async () => {
     try {
@@ -142,7 +146,6 @@ function Hero() {
         console.error("Error fetching game rates:", err);
       }
     };
-
     fetchGameRates();
   }, []);
 
@@ -165,7 +168,6 @@ function Hero() {
         valueLabel: `${key}Value`,
         value: gameRatesObject[`${key}Value`] ?? 0,
       }));
-
       setGameRatesArray(convertedArray);
     };
 
@@ -175,29 +177,30 @@ function Hero() {
   }, [gameRatesObject]);
 
   return (
-    <div>
-      <a href={`https://wa.me/+91${whatsapp}`} target="blank" className="whatsapp-icon-div">
-        <FaWhatsapp name="whatsapp" size={26} color="white" />
+    <div className="bg-white text-gray-800"> {/* Main container for light theme */}
+      <a href={`https://wa.me/+91${whatsapp}`} target="blank" className="fixed bottom-4 right-4 z-50 bg-teal-600 p-3 rounded-full shadow-lg hover:bg-teal-700 transition-colors duration-200">
+        <FaWhatsapp size={26} color="white" />
       </a>
 
-      <div className="flex flex-col items-center min-h-screen mt-[1cm] ">
+      <div className="flex flex-col items-center min-h-screen mt-[1cm]">
+        {/* Header Section */}
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
-            <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold">
-              Welcome to <span className="text-orange-500"> Matka</span>
+            <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold text-gray-800">
+              Welcome to <span className="text-teal-600"> Matka</span>
             </p>
-
-            <p className=" text-xl md:text-2xl">
+            <p className="text-xl md:text-2xl text-gray-600">
               Business Of Faith, With Confidence
             </p>
           </div>
         </section>
 
-        <section id="hero" className="w-full h-72 bg-pink-200 pt-4">
-          <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8  " >
+        {/* Download Button Section */}
+        <section id="hero" className="w-full h-72 bg-gray-100 pt-4"> {/* Changed background */}
+          <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8">
             <div className="flex justify-center space-x-6">
-              <a href="https://matka-apk-app.s3.ap-south-1.amazonaws.com/app-release+(5).apk"
-                className="animate-bounce bg-orange-500 p-2 rounded-full w-72 text-white border-white border-2 shadow mt-3 text-center ">
+              <a href={DEFAULT_DOWNLOAD_URL} // Using the constant for download URL
+                className="animate-bounce bg-teal-600 p-2 rounded-full w-72 text-white border-teal-700 border-2 shadow mt-3 text-center hover:bg-teal-700 transition-colors duration-200">
                 <FaHandPointRight className="inline-block text-lg mr-2" />
                 Download Now
               </a>
@@ -210,16 +213,13 @@ function Hero() {
             </div>
 
             <div className="mt-6 flex justify-center space-x-6">
-              <a
-                className="bg-white border-orange-500 p-3 rounded-full text-gray-800 w-48 border-2 shadow text-center"
-                href={`tel:+91${mobile}`}
-              >
-
+              <a className="bg-white border-teal-500 p-3 rounded-full text-gray-800 w-48 border-2 shadow text-center hover:bg-gray-50 transition-colors duration-200"
+                href={`tel:+91${mobile}`}>
                 <FaPhone className="inline-block mr-2" />
                 Call Now
               </a>
 
-              <a className="bg-green-600 p-3 rounded-full text-white w-48 border-white border-2 shadow text-center"
+              <a className="bg-green-600 p-3 rounded-full text-white w-48 border-green-700 border-2 shadow text-center hover:bg-green-700 transition-colors duration-200"
                 href={`https://wa.me/+91${whatsapp}`} target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp className="inline-block mr-2" />
                 Whats App
@@ -228,23 +228,23 @@ function Hero() {
           </div>
         </section>
 
-        <section id="pricing" className="w-full h-auto pt-4 p-4 bg-gray-100">
+        {/* Rates Section */}
+        <section id="pricing" className="w-full h-auto pt-4 p-4 bg-white"> {/* Changed background */}
           <div className="text-center my-4">
-            <h2 className="text-4xl font-bold">
-              Game<span className="text-orange-500"> Rates</span>
+            <h2 className="text-4xl font-bold text-gray-800">
+              Game<span className="text-teal-600"> Rates</span>
             </h2>
-            <p className="separator">We have Best Game Rates for you</p>
+            <p className="separator text-gray-600">We have Best Game Rates for you</p>
             <br /><br />
-
 
             <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2">
               {gameRatesArray.map((m, i) => (
-                <div key={i} className="flex items-center justify-between border-l-[5px] border-l-red-500 px-[.3cm] py-[.25cm] bg-white rounded-[5px]">
+                <div key={i} className="flex items-center justify-between border-l-[5px] border-l-teal-500 px-[.3cm] py-[.25cm] bg-gray-50 rounded-[5px]"> {/* Changed background and border color */}
                   <div className="w-fit flex items-center gap-[.2cm]">
-                    <FaHandPointRight size={20} />
-                    <p className="font-bold text-[18px]">{m.rateLabel}</p>
+                    <FaHandPointRight size={20} className="text-teal-600" />
+                    <p className="font-bold text-[18px] text-gray-700">{m.rateLabel}</p>
                   </div>
-                  <p className="font-bold text-red-500 text-[18px]">
+                  <p className="font-bold text-teal-600 text-[18px]">
                     {m.rate} RS KA {m.value} RS
                   </p>
                 </div>
@@ -253,30 +253,31 @@ function Hero() {
           </div>
         </section>
 
-        <section id="availableGames" className="w-full h-auto pt-4 p-4">
+        {/* Available Games Section */}
+        <section id="availableGames" className="w-full h-auto pt-4 p-4 bg-white"> {/* Changed background */}
           <div className="text-center my-4">
-            <h2 className="text-4xl font-bold">
-              Available<span className="text-orange-500"> Games</span>
+            <h2 className="text-4xl font-bold text-gray-800">
+              Available<span className="text-teal-600"> Games</span>
             </h2>
-            <p className="separator">We have multiple types of games for you</p>
+            <p className="separator text-gray-600">We have multiple types of games for you</p>
           </div>
 
           <div className="md:grid md:grid-cols-2 md:gap-4" id="available-game-row">
             {games.map((game, index) => (
-              <div key={index} className="bg-white rounded-r-lg grid grid-cols-2 pt-2 h-36 text-lg md:text-lg shadow border-l-4 border-l-orange-500 my-2 px-2">
+              <div key={index} className="bg-gray-50 rounded-r-lg grid grid-cols-2 pt-2 h-36 text-lg md:text-lg shadow border-l-4 border-l-teal-500 my-2 px-2 text-gray-700"> {/* Changed background, border, and text color */}
                 <div className="mt-4 text-center">
                   <h3><strong>{game.name}</strong></h3>
-                  <h2 className="text-orange-500">
+                  <h2 className="text-teal-600">
                     <strong>{getResultStringForGame(game.name)} </strong>
                   </h2>
                   <div>
-                    <a className="text-orange-500 viewChartFont" href={`/jodi-chart/${game.name}`}>
+                    <a className="text-teal-600 viewChartFont hover:underline" href={`/jodi-chart/${game.name}`}>
                       {game.jodiChart ? "Jodi chart" : "View Chart"}
                     </a>
                     {game.pannaChart && (
                       <>
-                        <span> | </span>
-                        <a className="text-orange-500 viewChartFont" href={`/panna-chart/${game.name}`}>
+                        <span className="text-gray-500"> | </span>
+                        <a className="text-teal-600 viewChartFont hover:underline" href={`/panna-chart/${game.name}`}>
                           Panna Chart
                         </a>
                       </>
@@ -284,10 +285,10 @@ function Hero() {
                   </div>
                 </div>
                 <div className="text-right pr-4 flex flex-col items-end ">
-                  <a href='https://osho-matka.s3.ap-south-1.amazonaws.com/app-release+(3).apk' className="mr-2 ">
-                    <FaPlayCircle size={60} className="text-orange-500 text-2xl shadow rounded-full shadow-orange-400 shadow-lg" />
+                  <a href={DEFAULT_DOWNLOAD_URL} className="mr-2 "> {/* Using the constant for download URL */}
+                    <FaPlayCircle size={60} className="text-teal-600 text-2xl shadow rounded-full shadow-teal-500 shadow-lg" />
                   </a>
-                  <h5 className="mt-2 text-base font-bold">Play Now</h5>
+                  <h5 className="mt-2 text-base font-bold text-gray-800">Play Now</h5>
                 </div>
               </div>
             ))}

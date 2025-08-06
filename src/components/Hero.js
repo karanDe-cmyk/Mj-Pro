@@ -286,7 +286,7 @@ function Hero() {
                 </div>
                 <div className="text-right pr-4 flex flex-col items-end ">
                   <a href={DEFAULT_DOWNLOAD_URL} className="mr-2 "> {/* Using the constant for download URL */}
-                    <FaPlayCircle size={60} className="text-teal-600 text-2xl shadow rounded-full shadow-teal-500 shadow-lg" />
+                    <FaPlayCircle size={60} className="text-teal-600 text-2xl rounded-full shadow-teal-500 shadow-lg" />
                   </a>
                   <h5 className="mt-2 text-base font-bold text-gray-800">Play Now</h5>
                 </div>

@@ -8,71 +8,52 @@ import {
 import apiInstance from "../utils/axios";
 import moment from "moment";
 
-const ANDROID_64_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
-const ANDROID_32_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-armeabi-v7a-release.apk";
-const IOS_APP_STORE_URL = "https://apps.apple.com/app/idXXXXXXXXX"; // Replace with actual App Store link
-const DEFAULT_DOWNLOAD_URL = ANDROID_64_BIT_URL; // default to 64-bit
-
 function Hero() {
+
+
   const [games, setGames] = useState([]);
+  const [charts, setCharts] = useState([]);
   const [declaredResults, setDeclaredResults] = useState([]);
-  const [whatsapp, setWhatsapp] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [downloadUrl, setDownloadUrl] = useState(DEFAULT_DOWNLOAD_URL);
-  const [gameRatesObject, setGameRatesObject] = useState({});
-  const [gameRatesArray, setGameRatesArray] = useState([]);
   const today = moment().format("YYYY-MM-DD");
+  console.log(charts)
+  console.log(games)
 
-  // Enhanced Device Architecture Detection
-  const detectArchitecture = () => {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    console.log("UserAgent =>", ua);
+  const [whatsapp, setWhatsapp] = useState("")
+  const [mobile, setMobile] = useState("")
 
-    if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-      setDownloadUrl(IOS_APP_STORE_URL);
-      return;
-    }
+  const getResultStringForGame = (gameName) => {
+    const gameResults = declaredResults.filter(
+      (item) =>
+        item.gameName.trim().toUpperCase() === gameName.trim().toUpperCase()
+    );
+    const openResult = gameResults.find((item) => item.gameType === "open");
+    const closeResult = gameResults.find((item) => item.gameType === "close");
 
-    if (/android/i.test(ua)) {
-      // Check for ARM64 or x86_64 indicators
-      if (/aarch64|armv8|arm64|x86_64/i.test(ua)) {
-        setDownloadUrl(ANDROID_64_BIT_URL);
-      } else if (/armv7|armeabi/i.test(ua)) {
-        setDownloadUrl(ANDROID_32_BIT_URL);
-      } else {
-        // Unknown architecture, default to 64-bit as most devices are now 64-bit
-        setDownloadUrl(ANDROID_64_BIT_URL);
-      }
+    if (openResult && closeResult) {
+      return `${openResult.panna}-${openResult.digit}${closeResult.digit}-${closeResult.panna}`;
+    } else if (openResult && !closeResult) {
+      return `${openResult.panna}-${openResult.digit}*-***`;
+    } else if (!openResult && closeResult) {
+      return `***-*${closeResult.digit}-${closeResult.panna}`;
     } else {
-      setDownloadUrl(DEFAULT_DOWNLOAD_URL); // For desktop or unknown OS
+      return "***-**-***";
     }
   };
 
-  useEffect(() => {
-    detectArchitecture();
-  }, []);
-
-  const handleDownload = () => {
-    if (downloadUrl) {
-      window.location.href = downloadUrl;
-    } else {
-      alert("Could not find a suitable download link.");
-    }
-  };
-
-  // Fetch WhatsApp & Mobile Info
   useEffect(() => {
     const fetchWhatsapp = async () => {
       try {
         const res = await apiInstance.get('/api/settings/general/whatsapp');
-        setWhatsapp(res.data.whatsappnumber);
-        setMobile(res.data.mobile);
-      } catch (err) {
-        console.log(err);
+        setWhatsapp(res.data.whatsappnumber)
+        setMobile(res.data.mobile)
       }
-    };
-    fetchWhatsapp();
-  }, []);
+      catch (err) {
+        console.log(err)
+      }
+    }
+
+    fetchWhatsapp()
+  }, [])
 
   const fetchGames = async () => {
     try {
@@ -135,6 +116,7 @@ function Hero() {
         (item) => item.date === today && item.marketName === "Main Market"
       );
       setDeclaredResults(todayResults);
+      setCharts(response.data.results ? Object.entries(response.data.results) : []);
     } catch (error) {
       console.error("Error fetching declared results:", error);
     }
@@ -148,6 +130,9 @@ function Hero() {
     fetchDeclaredResults();
   }, [fetchDeclaredResults]);
 
+  const [gameRatesObject, setGameRatesObject] = useState({});
+  const [gameRatesArray, setGameRatesArray] = useState([]);
+
   useEffect(() => {
     const fetchGameRates = async () => {
       try {
@@ -157,6 +142,7 @@ function Hero() {
         console.error("Error fetching game rates:", err);
       }
     };
+
     fetchGameRates();
   }, []);
 
@@ -179,6 +165,7 @@ function Hero() {
         valueLabel: `${key}Value`,
         value: gameRatesObject[`${key}Value`] ?? 0,
       }));
+
       setGameRatesArray(convertedArray);
     };
 
@@ -187,53 +174,33 @@ function Hero() {
     }
   }, [gameRatesObject]);
 
-  const getResultStringForGame = (gameName) => {
-    const gameResults = declaredResults.filter(
-      (item) =>
-        item.gameName.trim().toUpperCase() === gameName.trim().toUpperCase()
-    );
-    const openResult = gameResults.find((item) => item.gameType === "open");
-    const closeResult = gameResults.find((item) => item.gameType === "close");
-
-    if (openResult && closeResult) {
-      return `${openResult.panna}-${openResult.digit}${closeResult.digit}-${closeResult.panna}`;
-    } else if (openResult && !closeResult) {
-      return `${openResult.panna}-${openResult.digit}*-***`;
-    } else if (!openResult && closeResult) {
-      return `***-*${closeResult.digit}-${closeResult.panna}`;
-    } else {
-      return "***-**-***";
-    }
-  };
-
   return (
     <div>
       <a href={`https://wa.me/+91${whatsapp}`} target="blank" className="whatsapp-icon-div">
-        <FaWhatsapp size={26} color="white" />
+        <FaWhatsapp name="whatsapp" size={26} color="white" />
       </a>
 
       <div className="flex flex-col items-center min-h-screen mt-[1cm] ">
-        {/* Header Section */}
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
             <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold">
               Welcome to <span className="text-orange-500"> Matka</span>
             </p>
+
             <p className=" text-xl md:text-2xl">
               Business Of Faith, With Confidence
             </p>
           </div>
         </section>
 
-        {/* Download Button Section */}
         <section id="hero" className="w-full h-72 bg-pink-200 pt-4">
-          <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8  " >
             <div className="flex justify-center space-x-6">
-              <button onClick={handleDownload}
+              <a href="https://matka-apk-app.s3.ap-south-1.amazonaws.com/app-release+(5).apk"
                 className="animate-bounce bg-orange-500 p-2 rounded-full w-72 text-white border-white border-2 shadow mt-3 text-center ">
                 <FaHandPointRight className="inline-block text-lg mr-2" />
                 Download Now
-              </button>
+              </a>
             </div>
 
             <div className="mt-8 text-center text-base">
@@ -243,8 +210,11 @@ function Hero() {
             </div>
 
             <div className="mt-6 flex justify-center space-x-6">
-              <a className="bg-white border-orange-500 p-3 rounded-full text-gray-800 w-48 border-2 shadow text-center"
-                href={`tel:+91${mobile}`}>
+              <a
+                className="bg-white border-orange-500 p-3 rounded-full text-gray-800 w-48 border-2 shadow text-center"
+                href={`tel:+91${mobile}`}
+              >
+
                 <FaPhone className="inline-block mr-2" />
                 Call Now
               </a>
@@ -258,7 +228,6 @@ function Hero() {
           </div>
         </section>
 
-        {/* Rates Section */}
         <section id="pricing" className="w-full h-auto pt-4 p-4 bg-gray-100">
           <div className="text-center my-4">
             <h2 className="text-4xl font-bold">
@@ -266,6 +235,7 @@ function Hero() {
             </h2>
             <p className="separator">We have Best Game Rates for you</p>
             <br /><br />
+
 
             <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2">
               {gameRatesArray.map((m, i) => (
@@ -283,7 +253,6 @@ function Hero() {
           </div>
         </section>
 
-        {/* Available Games Section */}
         <section id="availableGames" className="w-full h-auto pt-4 p-4">
           <div className="text-center my-4">
             <h2 className="text-4xl font-bold">
@@ -315,9 +284,9 @@ function Hero() {
                   </div>
                 </div>
                 <div className="text-right pr-4 flex flex-col items-end ">
-                  <button onClick={handleDownload} className="mr-2 ">
+                  <a href='https://osho-matka.s3.ap-south-1.amazonaws.com/app-release+(3).apk' className="mr-2 ">
                     <FaPlayCircle size={60} className="text-orange-500 text-2xl shadow rounded-full shadow-orange-400 shadow-lg" />
-                  </button>
+                  </a>
                   <h5 className="mt-2 text-base font-bold">Play Now</h5>
                 </div>
               </div>

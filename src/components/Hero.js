@@ -8,9 +8,9 @@ import {
 import apiInstance from "../utils/axios"; // Assuming this path is correct
 import moment from "moment";
 
-const ANDROID_64_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-arm64-v8a-release.apk";
-const ANDROID_32_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-armeabi-v7a-release.apk";
-const IOS_APP_STORE_URL = "https://apps.apple.com/app/idXXXXXXXXX"; // Replace with actual App Store link
+const ANDROID_64_BIT_URL = "https://matka-apk-app.s3.ap-south-1.amazonaws.com/app-universal-release.apk";
+// const ANDROID_32_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-armeabi-v7a-release.apk";
+// const IOS_APP_STORE_URL = "https://apps.apple.com/app/idXXXXXXXXX"; // Replace with actual App Store link
 const DEFAULT_DOWNLOAD_URL = ANDROID_64_BIT_URL; // default to 64-bit
 
 function Hero() {

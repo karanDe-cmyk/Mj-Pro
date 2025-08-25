@@ -214,17 +214,6 @@ function Hero() {
 
   console.log("Game Rates Array:", gameRatesArray);
 
-
-
-
-
-
-
-
-
-
-
-
   return (
     <>
       <div className="flex flex-col items-center min-h-screen mt-10">
@@ -345,7 +334,7 @@ function Hero() {
             <p className="separator">We have multiple types of games for you</p>
           </div>
 
-          
+
 
           <div
             className="md:grid md:grid-cols-2 md:gap-4"

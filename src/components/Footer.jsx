@@ -30,28 +30,28 @@ function Footer() {
                         {/* Social Media Icons */}
                         <div className="mb-8 flex justify-center space-x-6">
                             <a 
-                                href="#" 
+                                href="https://facebook.com" 
                                 className="bg-black bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transform hover:scale-110 transition-all duration-300 hover:shadow-lg border border-white border-opacity-20"
                             >
                                 <span className="sr-only">Facebook</span>
                                 <FaFacebook size={22} className="text-white" />
                             </a>
                             <a 
-                                href="#" 
+                                href="https://instagram.com" 
                                 className="bg-black bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transform hover:scale-110 transition-all duration-300 hover:shadow-lg border border-white border-opacity-20"
                             >
                                 <span className="sr-only">Instagram</span>
                                 <FaInstagram size={22} className="text-white" />
                             </a>
                             <a 
-                                href="#" 
+                                href="https://twitter.com" 
                                 className="bg-black bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transform hover:scale-110 transition-all duration-300 hover:shadow-lg border border-white border-opacity-20"
                             >
                                 <span className="sr-only">Twitter</span>
                                 <FaTwitter size={22} className="text-white" />
                             </a>
                             <a 
-                                href="#" 
+                                href="https://youtube.com" 
                                 className="bg-black bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transform hover:scale-110 transition-all duration-300 hover:shadow-lg border border-white border-opacity-20"
                             >
                                 <span className="sr-only">YouTube</span>

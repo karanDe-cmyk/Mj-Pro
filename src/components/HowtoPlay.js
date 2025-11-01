@@ -1,137 +1,308 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { FaPlay, FaMoneyBillWave, FaTrophy, FaChartLine, FaHistory, FaGraduationCap, FaDice, FaWallet, FaClock, FaMobile } from 'react-icons/fa';
+import apiInstance from "../utils/axios";
 
 const HowToPlay = () => {
   // Data for the sections to avoid repetition
+  const [whatsapp, setWhatsapp] = useState("");
+  const [mobile, setMobile] = useState("");
+
+  useEffect(() => {
+    const fetchWhatsapp = async () => {
+      try {
+        const res = await apiInstance.get('/api/settings/general/whatsapp');
+        setWhatsapp(res.data.whatsappnumber);
+        setMobile(res.data.mobile);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchWhatsapp();
+  }, []);
+
   const sections = [
     {
       title: "About the Game",
+      icon: FaDice,
+      gradient: "from-[#F21BB9] to-[#BF046B]",
       content: (
         <>
-          <p className="mb-4">
-            Satta is a broad word to describe <i>"betting"</i> in India or Hindi. The Matka game is sometimes referred to as Indian Satta Matka because of its early popularity. If you are interested in betting games, you can check out the numbers game. The game of online satta matka is pretty simple to understand and play. With a very little study and effort you can become online matka play king and earn huge amount. The kalyan matka game which is the online matka play market was the first online matka market introduced by Kalyanji Bhagat in 1962 and the online matka Waroli market was introduced back in 70's by Ratan Khatri.
+          <p className="mb-4 text-gray-300 leading-relaxed">
+            Satta is a broad word to describe <i className="text-[#18D9D9]">"betting"</i> in India or Hindi. The Matka game is sometimes referred to as Indian Satta Matka because of its early popularity. If you are interested in betting games, you can check out the numbers game. The game of online satta matka is pretty simple to understand and play. With a very little study and effort you can become online matka play king and earn huge amount. The kalyan matka game which is the online matka play market was the first online matka market introduced by Kalyanji Bhagat in 1962 and the online matka Waroli market was introduced back in 70's by Ratan Khatri.
           </p>
 
-          <p className="mb-4 font-semibold">
-            This is how you play matka on MJ Pro:
-          </p>
+          <div className="bg-gradient-to-r from-[#18D9D9] to-[#8C162C] rounded-xl p-4 mb-6">
+            <p className="font-bold text-white text-lg text-center">
+              This is how you play matka on Madhur567:
+            </p>
+          </div>
 
-          <ul className="list-disc pl-6 mb-6 space-y-2">
-            <li>
-              Step 1 is to pick (3) numbers from 0–9. For example 5,3,6 would be your first picked random numbers from given 0–9. To add more thrill and substance to the diversion, the numbers are then included/added (5 + 3 + 6) and a last number is given. In this example it is 14. Now, you only have have to keep one digit of this number, that is the last one. In this example, it will be the 4. So your first draw would be 5,3,6 *4.
-            </li>
-            <li>
-              There are also a second set of numbers which is drawn. The process is similar just like step 1. The rules for picking 2nd number is exactly same as the first draw. As an random case, lets accept the numbers 8,2,8. This gives us a sum of 18, we again just only keep the last digit so our last pick for the second draw of numbers is 8,2,8 *8
-            </li>
-            <li>
-              Our last card would resemble this: 5,3,6 *4 X 8,2,8 *8. Here is an example card.
-            </li>
-          </ul>
+          <div className="grid md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-xl p-4 border border-gray-500">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#F21BB9] to-[#BF046B] rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-white font-bold">1</span>
+              </div>
+              <p className="text-gray-300 text-sm text-center">
+                Pick (3) numbers from 0–9. For example 5,3,6. Add them (5+3+6=14) and keep the last digit (4). Your first draw: 5,3,6 *4
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-xl p-4 border border-gray-500">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#18D9D9] to-[#8C162C] rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-white font-bold">2</span>
+              </div>
+              <p className="text-gray-300 text-sm text-center">
+                Repeat the same process for second set. Example: 8,2,8 gives sum 18, keep last digit 8. Second draw: 8,2,8 *8
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-xl p-4 border border-gray-500">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#D99962] to-[#18D9D9] rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-white font-bold">3</span>
+              </div>
+              <p className="text-gray-300 text-sm text-center">
+                Final card: 5,3,6 *4 X 8,2,8 *8. This is your complete betting card for the game.
+              </p>
+            </div>
+          </div>
         </>
       )
     },
     {
-      title: "How to add money in MJ Pro?",
+      title: "How to add money in Madhur567?",
+      icon: FaWallet,
+      gradient: "from-[#18D9D9] to-[#D99962]",
       content: (
         <>
-          <ul className="list-[circle] pl-6 mb-6 space-y-2">
-            <li>Minimum Deposit is 100 /- Rs</li>
-            <li>Minimum Withdraw is 1000/- Rs</li>
-            <li>Maximum Withdraw Is 25 Lakh Per Day.</li>
-            <li>Withdrawal request can be placed between 11 am to 11 pm, all 7 days.</li>
-            <li>Once withdraw request is placed, amount will be deducted from your wallet & amount will be credited to your bank account with in 60 mins.</li>
-            <li>Withdraw Is Available On Saturday & Sunday Also.</li>
-            <li>Withdraw Is Not Available On Festivals.</li>
-            <li>The amount of money you deposit accordingly the points will be added to your corresponding ID</li>
-            <li>1 point = Rs. 1/-</li>
-          </ul>
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="space-y-3">
+              <div className="flex items-center bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg p-3 border border-gray-500">
+                <FaMoneyBillWave className="text-[#18D9D9] mr-3" />
+                <span className="text-white">Minimum Deposit: 100 Rs</span>
+              </div>
+              <div className="flex items-center bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg p-3 border border-gray-500">
+                <FaMoneyBillWave className="text-[#F21BB9] mr-3" />
+                <span className="text-white">Minimum Withdraw: 1000 Rs</span>
+              </div>
+              <div className="flex items-center bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg p-3 border border-gray-500">
+                <FaTrophy className="text-[#D99962] mr-3" />
+                <span className="text-white">Max Withdraw: 25 Lakh/Day</span>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-center bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg p-3 border border-gray-500">
+                <FaClock className="text-[#18D9D9] mr-3" />
+                <span className="text-white">Withdrawal Time: 11 AM - 11 PM</span>
+              </div>
+              <div className="flex items-center bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg p-3 border border-gray-500">
+                <FaMobile className="text-[#F21BB9] mr-3" />
+                <span className="text-white">7 Days Service</span>
+              </div>
+              <div className="flex items-center bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg p-3 border border-gray-500">
+                <span className="w-3 h-3 bg-[#D99962] rounded-full mr-3"></span>
+                <span className="text-white">1 Point = 1 Rs</span>
+              </div>
+            </div>
+          </div>
 
-          <p className="mb-6">
-            The game you played and got lucky enough to win it then accordingly your points will be increased.
-            If you wish to encash the points, just apply for withdrawal request on our MJ Pro Mobile App. 
-            <br /><b>**</b> In case of any inconvenience regarding the transaction of money OR further query then you can WhatsApp us on <a href="https://wa.me/+919167555333" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold">+91 9167 555333</a>
-          </p>
+          <div className="bg-gradient-to-r from-[#BF046B] to-[#F21BB9] rounded-xl p-4 mb-4">
+            <p className="text-white text-center font-semibold">
+              The game you played and got lucky enough to win it then accordingly your points will be increased.
+              If you wish to encash the points, just apply for withdrawal request on our Madhur567 Mobile App.
+            </p>
+          </div>
+
+          <div className="text-center">
+            <p className="text-gray-300 mb-2">
+              In case of any inconvenience regarding transactions
+            </p>
+            <a
+              href={`https://wa.me/+91${whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-gradient-to-r from-[#18D9D9] to-[#D99962] px-6 py-3 rounded-lg text-gray-900 font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+            >
+              <FaMobile className="mr-2" />
+              WhatsApp: +91 {whatsapp}
+            </a>
+          </div>
         </>
       )
     },
     {
       title: "Satta Matka Guide – How To Play & Win Money?",
+      icon: FaGraduationCap,
+      gradient: "from-[#D99962] to-[#18D9D9]",
       content: "Satta is a broad word to describe 'betting' in India or Hindi. The Matka game is sometimes referred to as Indian Satta Matka because of its early popularity. If you are interested in betting games, you can check out the numbers game at KingMatka.com"
     },
     {
       title: "WHAT IS SATTA BAZAR?",
+      icon: FaChartLine,
+      gradient: "from-[#8C162C] to-[#BF046B]",
       content: "Satta bazar is a highly local Indian term that means betting market. Indians love to bet on a number of things. They enjoy taking part in this activity and are therefore always willing to spend a significant amount of money in the game of Satta. Famous Form Of Satta Matka is both a lottery and a number-based game, and you have to pick a number to actually play the game and check for the turn and see whether or not your number has reached the ensuing place. Satta Matka is a form of gambling or lottery that came into India before the country got independent."
     },
     {
       title: "WHAT IS MATKA SATTA?",
+      icon: FaDice,
+      gradient: "from-[#F21BB9] to-[#D99962]",
       content: "Matka satta is one of the well-liked forms of betting in India. In matka satta, slips are pulled from a large earthenware pot known as matka. Sometimes, the winner is declared after dealing with the playing card. The lead person who runs the syndicate of matka gambling is known as a 'Matka King'. Kalyan and Worli are two of the most popular Matka Games."
     },
     {
       title: "WHERE TO GO FOR SATTA MATKA ONLINE FOR REAL MONEY",
+      icon: FaMoneyBillWave,
+      gradient: "from-[#18D9D9] to-[#8C162C]",
       content: (
         <>
-          Satta is not currently legal in India, but it is still big business. Lotteries have become more attractive online because they combine all lotteries on an international level, so those from India can leverage their bets by only picking lottery cards where the jackpot is the biggest. India has a relatively small lottery jackpot while the US and EU countries have jackpots commonly in the 100's of millions of Euros/USD. For other betting games, a large majority of Indians are still betting with local bookies, but more are using the internet at online casinos and online bookies like Betway for cricket and other sports or casino games.
-          <br /><br /><b>Pick Numbers</b>
-          <ul className="list-disc pl-6 mt-2 space-y-2">
-            <li>You pick (3) three numbers from 0 – 9.</li>
-            <li>For example, 5,3,6 would be your first pick at random.</li>
-            <li>To add more substance to the game, the numbers are then added up (5 + 3 + 6) and a final Satta Matka number is given.</li>
-            <li>In this example, it is 14. You only use one digit of this number, the last one. In this example, it will be the 4.</li>
-            <li>So your first draw would be 5,3,6 *4.</li>
-            <li>The second set of numbers is also drawn. They are drawn in the exact same way as the first draw.</li>
-            <li>As a random example, let's assume the numbers 8,2,8. This gives us a total of 18, we again only use the last digit so our final pick for the second set of numbers is 8,2,8 *8</li>
-            <li>Our final card would look like this: 5,3,6 *4 X 8,2,8 *8. Here is an example card you would find in a matka game.</li>
-          </ul>
+          <p className="text-gray-300 mb-4">
+            Satta is not currently legal in India, but it is still big business. Lotteries have become more attractive online because they combine all lotteries on an international level, so those from India can leverage their bets by only picking lottery cards where the jackpot is the biggest.
+          </p>
+
+          <div className="bg-gradient-to-r from-[#D99962] to-[#18D9D9] rounded-xl p-4 mb-4">
+            <h4 className="text-gray-900 font-bold text-lg text-center mb-2">Pick Numbers Process</h4>
+            <div className="grid gap-2 text-sm">
+              <div className="flex items-center">
+                <div className="w-6 h-6 bg-[#8C162C] rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white text-xs">1</span>
+                </div>
+                <span className="text-gray-900">You pick (3) three numbers from 0 – 9</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-6 h-6 bg-[#BF046B] rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white text-xs">2</span>
+                </div>
+                <span className="text-gray-900">Add numbers and keep last digit</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-6 h-6 bg-[#F21BB9] rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white text-xs">3</span>
+                </div>
+                <span className="text-gray-900">Repeat for second set of numbers</span>
+              </div>
+            </div>
+          </div>
         </>
       )
     },
     {
       title: "How Do You Win At Matka?",
+      icon: FaTrophy,
+      gradient: "from-[#BF046B] to-[#F21BB9]",
       content: "To win at Matka Satta, you have various rate payouts, ranging from 9/1 to 999/1. You can bet on the chance of all numbers coming up to the first, last, or any other type of bet allowed by the Matka gambling bookie. For this reason, it can be an attractive game because of the payout multiples, but the game is merely a game of chance and therefore can not be beaten. It requires luck to win, but many are superstitious about their numbers and always play them, just like the lottery games."
     },
     {
       title: "SATTA MATKA FEES & ODDS",
+      icon: FaChartLine,
+      gradient: "from-[#D99962] to-[#18D9D9]",
       content: (
         <>
-          The Satta betting agent should only take a maximum of 5% of your wager amount assuming you win. Because the game is all luck and neither the agent nor the bettor has an advantage, the bookie should take home 5% on every Rupee wagered. Heavy betting on a certain number or combination of numbers can be a dangerous scenario. If those numbers come up, it is very likely your bookie will vanish because he can't afford to cover the wagers. When the cards and numbers are picked, generally at 9 PM and 12 at night the winners are declared. This is how a payout would occur.
-          <br /><br />Example Of A 10 Rupees Bet:
-          <ul className="list-disc pl-6 mt-2 space-y-2">
-            <li>You choose the correct first number drawn: 9 X Your Wager of 10Rs = 90 Rs.</li>
-            <li>Your second number is drawn: 9 X Your Wager of 10Rs = 90 Rs.</li>
-            <li>You choose the middle number (the jodi) and the first number correct in combination: 90 X Your Wager = 900 Rs.</li>
-          </ul>
-          <button className="text-orange-500 underline font-medium">Play Live Lottery Games Today!</button>
+          <p className="text-gray-300 mb-4">
+            The Satta betting agent should only take a maximum of 5% of your wager amount assuming you win. Because the game is all luck and neither the agent nor the bettor has an advantage, the bookie should take home 5% on every Rupee wagered.
+          </p>
 
+          <div className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-xl p-4 mb-4">
+            <h4 className="text-[#18D9D9] font-bold mb-3">Example Of A 10 Rupees Bet:</h4>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Correct first number:</span>
+                <span className="text-[#F21BB9] font-bold">90 Rs</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Correct second number:</span>
+                <span className="text-[#F21BB9] font-bold">90 Rs</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Jodi combination:</span>
+                <span className="text-[#F21BB9] font-bold">900 Rs</span>
+              </div>
+            </div>
+          </div>
+
+          <button className="w-full bg-gradient-to-r from-[#F21BB9] to-[#BF046B] py-3 rounded-lg text-white font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+            Play Live Lottery Games Today!
+          </button>
         </>
       )
     },
     {
       title: "HISTORY OF SATTA MATKA",
+      icon: FaHistory,
+      gradient: "from-[#8C162C] to-[#BF046B]",
       content: "The origins of Indian Matka gambling involve wagering on the daily price of cotton according to the Bombay and the New York Cotton Exchange. Nowadays, Matka betting, or Satta King, is a popular lottery-style game. It involves the selection of random numbers in the hopes of hitting the right number combination. The winner becomes the Satta King and they earn the bulk of the prize pool. The legendary Ratan Khatri is popularly known as the Matka King. After his arrest in 1995, he had to discontinue his games and now crooks are running the game he loved so much by fixing the numbers. A big fall from grace, but his name remains legendary among Satta Matka games in Mumbai."
     },
     {
       title: "CONCLUSION ON SATTA MATKA",
+      icon: FaGraduationCap,
+      gradient: "from-[#18D9D9] to-[#D99962]",
       content: "Big-time enthusiasts still play this game and they remember the days of Ratan having celebrities pull draws for him. The game has since lost most of its following. Indians have chosen the faster-paced action of online cricket betting or live dealer casinos on their mobile devices. IPL betting draws people like nothing else in India and fans wait eagerly to place bets on the event."
     }
   ];
 
   return (
-    <div className="flex flex-col items-center min-h-screen mt-[2.5cm] ">
-      <div className="w-full max-w-6xl px-4">
-        {sections.map((section, index) => (
-          <section key={index} className={`mb-8 ${index === 0 ? 'text-center' : ''}`}>
-            {index === 0 ? (
-              <>
-                <h1 className="text-3xl font-bold text-gray-800">{section.title}</h1>
-                <div className="h-1 w-20 bg-orange-500 mx-auto mt-4 mb-8"></div>
-              </>
-            ) : (
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">{section.title}</h2>
-            )}
-            <div className="text-gray-700">
-              {section.content}
-            </div>
-          </section>
-        ))}
+    <div className="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen pt-24 pb-16 px-4">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-24 h-24 bg-[#18D9D9] rounded-full"></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-[#F21BB9] rounded-full"></div>
+        <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-[#D99962] rounded-full"></div>
+      </div>
+
+      <div className="relative max-w-6xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center mb-6">
+            <FaPlay className="text-5xl text-[#18D9D9] mr-4" />
+            <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#F21BB9] via-[#18D9D9] to-[#D99962] bg-clip-text text-transparent">
+              How to Play
+            </h1>
+          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#18D9D9] to-[#F21BB9] mx-auto rounded-full"></div>
+          <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
+            Learn everything about Satta Matka - from basic rules to advanced strategies. Start your journey to become a Matka King!
+          </p>
+        </div>
+
+        {/* Sections */}
+        <div className="space-y-8">
+          {sections.map((section, index) => {
+            const IconComponent = section.icon;
+            return (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-2xl border border-gray-600 overflow-hidden hover:shadow-3xl transition-all duration-300"
+              >
+                {/* Section Header */}
+                <div className={`bg-gradient-to-r ${section.gradient} p-6`}>
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-black bg-opacity-20 rounded-xl">
+                      <IconComponent className="text-white text-2xl" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-white">
+                      {section.title}
+                    </h2>
+                  </div>
+                </div>
+
+                {/* Section Content */}
+                <div className="p-6 text-white">
+                  {section.content}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Quick Start CTA */}
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-[#8C162C] to-[#BF046B] rounded-2xl p-8 border border-[#F21BB9]">
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to Start Playing?</h3>
+            <p className="text-gray-200 mb-6">
+              Join thousands of players who are already enjoying the thrill of Satta Matka
+            </p>
+            <button className="bg-gradient-to-r from-[#18D9D9] to-[#D99962] px-8 py-4 rounded-lg text-gray-900 font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              Start Playing Now
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

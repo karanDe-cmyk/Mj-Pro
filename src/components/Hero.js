@@ -5,27 +5,22 @@ import {
   FaWhatsapp,
   FaPlayCircle,
 } from "react-icons/fa";
-import apiInstance from "../utils/axios"; // Assuming this path is correct
+import apiInstance from "../utils/axios";
 import moment from "moment";
 
-const ANDROID_64_BIT_URL = "https://mj-matka.s3.ap-south-1.amazonaws.com/app-universal-release.apk";
-// const ANDROID_32_BIT_URL = "https://3d-gama-matka-app.s3.ap-south-1.amazonaws.com/app-armeabi-v7a-release.apk";
-// const IOS_APP_STORE_URL = "https://apps.apple.com/app/idXXXXXXXXX"; // Replace with actual App Store link
-const DEFAULT_DOWNLOAD_URL = ANDROID_64_BIT_URL; // default to 64-bit
+const ANDROID_64_BIT_URL = "https://madhur567.s3.ap-south-1.amazonaws.com/madhur567.apk";
+const DEFAULT_DOWNLOAD_URL = ANDROID_64_BIT_URL;
 
 function Hero() {
   const [games, setGames] = useState([]);
-  const [charts, setCharts] = useState([]); // Added from user's latest input
+  const [charts, setCharts] = useState([]);
   const [declaredResults, setDeclaredResults] = useState([]);
   const today = moment().format("YYYY-MM-DD");
-  console.log(charts); // User's original console log
-  console.log(games); // User's original console log
+  console.log(charts);
+  console.log(games);
 
   const [whatsapp, setWhatsapp] = useState("");
   const [mobile, setMobile] = useState("");
-
-  // Removed detectArchitecture and downloadUrl state as the download link is now hardcoded in JSX
-  // and the original provided code didn't use the state for the download button's href.
 
   const getResultStringForGame = (gameName) => {
     const gameResults = declaredResults.filter(
@@ -177,50 +172,63 @@ function Hero() {
   }, [gameRatesObject]);
 
   return (
-    <div className="bg-white text-gray-800"> {/* Main container for light theme */}
-      <a href={`https://wa.me/+91${whatsapp}`} target="blank" className="fixed bottom-4 right-4 z-50 bg-teal-600 p-3 rounded-full shadow-lg hover:bg-teal-700 transition-colors duration-200">
+    <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white min-h-screen">
+      {/* WhatsApp Floating Button */}
+      <a 
+        href={`https://wa.me/+91${whatsapp}`} 
+        target="blank" 
+        className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-[#BF046B] to-[#F21BB9] p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+      >
         <FaWhatsapp size={26} color="white" />
       </a>
 
-      <div className="flex flex-col items-center min-h-screen mt-[1cm]">
+      <div className="flex flex-col items-center pt-20">
         {/* Header Section */}
         <section className="flex flex-col w-full text-center header mt-4">
           <div className="z-10">
-            <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold text-gray-800">
-              Welcome to <span className="text-teal-600"> Matka</span>
+            <p className="text-[35px] sm:text-[40px] md:text-[55px] font-bold bg-gradient-to-r from-[#F21BB9] to-[#18D9D9] bg-clip-text text-transparent">
+              Welcome to <span className="text-[#BF046B]">Matka</span>
             </p>
-            <p className="text-xl md:text-2xl text-gray-600">
+            <p className="text-xl md:text-2xl text-gray-300 mt-2">
               Business Of Faith, With Confidence
             </p>
           </div>
         </section>
 
         {/* Download Button Section */}
-        <section id="hero" className="w-full h-72 bg-gray-100 pt-4"> {/* Changed background */}
+        <section id="hero" className="w-full py-12 bg-gradient-to-br from-[#8C162C] to-[#BF046B]">
           <div className="max-w-7xl mx-auto px-4 overflow-hidden sm:px-6 lg:px-8">
             <div className="flex justify-center space-x-6">
-              <a href={DEFAULT_DOWNLOAD_URL} // Using the constant for download URL
-                className="animate-bounce bg-teal-600 p-2 rounded-full w-72 text-white border-teal-700 border-2 shadow mt-3 text-center hover:bg-teal-700 transition-colors duration-200">
+              <a 
+                href={DEFAULT_DOWNLOAD_URL}
+                className="animate-pulse bg-gradient-to-r from-[#18D9D9] to-[#D99962] p-4 rounded-full w-72 text-white font-bold border-2 border-white shadow-2xl mt-3 text-center hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
+              >
                 <FaHandPointRight className="inline-block text-lg mr-2" />
                 Download Now
               </a>
             </div>
 
             <div className="mt-8 text-center text-base">
-              <h3 className="text-2xl text-gray-800">
+              <h3 className="text-2xl font-bold text-white">
                 <strong> +91 {whatsapp} </strong>
               </h3>
             </div>
 
             <div className="mt-6 flex justify-center space-x-6">
-              <a className="bg-white border-teal-500 p-3 rounded-full text-gray-800 w-48 border-2 shadow text-center hover:bg-gray-50 transition-colors duration-200"
-                href={`tel:+91${mobile}`}>
+              <a 
+                className="bg-gradient-to-r from-[#18D9D9] to-[#D99962] p-3 rounded-full text-white w-48 border-2 border-white shadow text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                href={`tel:+91${mobile}`}
+              >
                 <FaPhone className="inline-block mr-2" />
                 Call Now
               </a>
 
-              <a className="bg-green-600 p-3 rounded-full text-white w-48 border-green-700 border-2 shadow text-center hover:bg-green-700 transition-colors duration-200"
-                href={`https://wa.me/+91${whatsapp}`} target="_blank" rel="noopener noreferrer">
+              <a 
+                className="bg-gradient-to-r from-[#18D9D9] to-[#D99962] p-3 rounded-full text-white w-48 border-2 border-white shadow text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                href={`https://wa.me/+91${whatsapp}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <FaWhatsapp className="inline-block mr-2" />
                 Whats App
               </a>
@@ -229,22 +237,25 @@ function Hero() {
         </section>
 
         {/* Rates Section */}
-        <section id="pricing" className="w-full h-auto pt-4 p-4 bg-white"> {/* Changed background */}
+        <section id="pricing" className="w-full py-12 px-4 bg-gradient-to-br from-gray-800 to-gray-900">
           <div className="text-center my-4">
-            <h2 className="text-4xl font-bold text-gray-800">
-              Game<span className="text-teal-600"> Rates</span>
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-[#F21BB9] to-[#18D9D9] bg-clip-text text-transparent">
+              Game<span className="text-[#BF046B]"> Rates</span>
             </h2>
-            <p className="separator text-gray-600">We have Best Game Rates for you</p>
+            <p className="separator text-gray-300 mt-2">We have Best Game Rates for you</p>
             <br /><br />
 
-            <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2">
+            <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
               {gameRatesArray.map((m, i) => (
-                <div key={i} className="flex items-center justify-between border-l-[5px] border-l-teal-500 px-[.3cm] py-[.25cm] bg-gray-50 rounded-[5px]"> {/* Changed background and border color */}
-                  <div className="w-fit flex items-center gap-[.2cm]">
-                    <FaHandPointRight size={20} className="text-teal-600" />
-                    <p className="font-bold text-[18px] text-gray-700">{m.rateLabel}</p>
+                <div 
+                  key={i} 
+                  className="flex items-center justify-between border-l-[5px] border-l-[#18D9D9] px-4 py-3 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="w-fit flex items-center gap-3">
+                    <FaHandPointRight size={20} className="text-[#F21BB9]" />
+                    <p className="font-bold text-[18px] text-white">{m.rateLabel}</p>
                   </div>
-                  <p className="font-bold text-teal-600 text-[18px]">
+                  <p className="font-bold text-[#18D9D9] text-[18px]">
                     {m.rate} RS KA {m.value} RS
                   </p>
                 </div>
@@ -254,41 +265,53 @@ function Hero() {
         </section>
 
         {/* Available Games Section */}
-        <section id="availableGames" className="w-full h-auto pt-4 p-4 bg-white"> {/* Changed background */}
+        <section id="availableGames" className="w-full py-12 px-4 bg-gradient-to-br from-gray-900 to-gray-800">
           <div className="text-center my-4">
-            <h2 className="text-4xl font-bold text-gray-800">
-              Available<span className="text-teal-600"> Games</span>
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-[#F21BB9] to-[#18D9D9] bg-clip-text text-transparent">
+              Available<span className="text-[#BF046B]"> Games</span>
             </h2>
-            <p className="separator text-gray-600">We have multiple types of games for you</p>
+            <p className="separator text-gray-300 mt-2">We have multiple types of games for you</p>
           </div>
 
-          <div className="md:grid md:grid-cols-2 md:gap-4" id="available-game-row">
+          <div className="max-w-6xl mx-auto md:grid md:grid-cols-2 md:gap-6" id="available-game-row">
             {games.map((game, index) => (
-              <div key={index} className="bg-gray-50 rounded-r-lg grid grid-cols-2 pt-2 h-36 text-lg md:text-lg shadow border-l-4 border-l-teal-500 my-2 px-2 text-gray-700"> {/* Changed background, border, and text color */}
-                <div className="mt-4 text-center">
-                  <h3><strong>{game.name}</strong></h3>
-                  <h2 className="text-teal-600">
-                    <strong>{getResultStringForGame(game.name)} </strong>
+              <div 
+                key={index} 
+                className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl grid grid-cols-2 p-4 h-36 text-lg md:text-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-l-4 border-l-[#F21BB9] my-3"
+              >
+                <div className="mt-2 text-center">
+                  <h3 className="font-bold text-white">{game.name}</h3>
+                  <h2 className="text-[#18D9D9] font-bold text-lg">
+                    {getResultStringForGame(game.name)}
                   </h2>
-                  <div>
-                    <a className="text-teal-600 viewChartFont hover:underline" href={`/jodi-chart/${game.name}`}>
+                  <div className="mt-2">
+                    <a 
+                      className="text-[#D99962] viewChartFont hover:underline text-sm" 
+                      href={`/jodi-chart/${game.name}`}
+                    >
                       {game.jodiChart ? "Jodi chart" : "View Chart"}
                     </a>
                     {game.pannaChart && (
                       <>
-                        <span className="text-gray-500"> | </span>
-                        <a className="text-teal-600 viewChartFont hover:underline" href={`/panna-chart/${game.name}`}>
+                        <span className="text-gray-400 mx-1"> | </span>
+                        <a 
+                          className="text-[#D99962] viewChartFont hover:underline text-sm" 
+                          href={`/panna-chart/${game.name}`}
+                        >
                           Panna Chart
                         </a>
                       </>
                     )}
                   </div>
                 </div>
-                <div className="text-right pr-4 flex flex-col items-end ">
-                  <a href={DEFAULT_DOWNLOAD_URL} className="mr-2 "> {/* Using the constant for download URL */}
-                    <FaPlayCircle size={60} className="text-teal-600 text-2xl rounded-full shadow-teal-500 shadow-lg" />
+                <div className="text-right flex flex-col items-end justify-center">
+                  <a href={DEFAULT_DOWNLOAD_URL} className="mr-2">
+                    <FaPlayCircle 
+                      size={60} 
+                      className="text-[#18D9D9] rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110" 
+                    />
                   </a>
-                  <h5 className="mt-2 text-base font-bold text-gray-800">Play Now</h5>
+                  <h5 className="mt-2 text-base font-bold text-white">Play Now</h5>
                 </div>
               </div>
             ))}

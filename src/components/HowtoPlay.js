@@ -5,14 +5,12 @@ import apiInstance from "../utils/axios";
 const HowToPlay = () => {
   // Data for the sections to avoid repetition
   const [whatsapp, setWhatsapp] = useState("");
-  const [mobile, setMobile] = useState("");
 
   useEffect(() => {
     const fetchWhatsapp = async () => {
       try {
         const res = await apiInstance.get('/api/settings/general/whatsapp');
         setWhatsapp(res.data.whatsappnumber);
-        setMobile(res.data.mobile);
       } catch (err) {
         console.log(err);
       }

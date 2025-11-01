@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import apiInstance from '../utils/axios'; // Assuming this path is correct
-import moment from 'moment'; // Ensure moment is installed if used
 
 const JackpotChart = () => {
     const { gameNameJackpot } = useParams();
